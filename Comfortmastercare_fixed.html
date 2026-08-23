@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MACOKI Digital Ecosystem | Clinic • Maternity • Learning • Community</title>
+<meta name="description" content="MACOKI Digital Ecosystem — Healthcare, Education, Inventory, Nursery Learning and Women's Health, connected in one trusted hub.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MACOKI DIGITAL ECOSYSTEM — DESIGN TOKENS
+   Signature: the "Orbit Hub" — every department orbits one core,
+   echoing "One Hub. Multiple Services. One Connected Ecosystem."
+   ============================================================ */
+:root{
+  --teal-950:#07211f;
+  --teal-900:#0b2f2c;
+  --teal-800:#0f453f;
+  --teal-700:#145c53;
+  --teal-600:#1a7367;
+  --teal-500:#218a7b;
+  --teal-100:#dcece8;
+  --teal-50:#f0f7f5;
+  --gold-700:#a5731f;
+  --gold-600:#c48a28;
+  --gold-500:#d9a441;
+  --gold-300:#ecc884;
+  --gold-100:#f8ecd3;
+  --clay-500:#b5563e;
+  --ink:#132321;
+  --ink-soft:#3c5450;
+  --paper:#f7f9f6;
+  --paper-raised:#ffffff;
+  --line:#dbe6e2;
+  --ok:#2f7d5a;
+  --warn:#c48a28;
+  --danger:#b5563e;
+  --radius:14px;
+  --font-display:'Fraunces', serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+  --shadow-sm:0 1px 2px rgba(7,33,31,.08);
+  --shadow-md:0 8px 24px rgba(7,33,31,.10);
+  --shadow-lg:0 20px 48px rgba(7,33,31,.16);
+}
+[data-theme="dark"]{
+  --paper:#081917;
+  --paper-raised:#0e2521;
+  --ink:#eaf4f1;
+  --ink-soft:#a9c4bd;
+  --line:#1c3a34;
+  --teal-100:#123832;
+  --teal-50:#0c2622;
+  --gold-100:#2a2013;
+  --shadow-md:0 8px 24px rgba(0,0,0,.4);
+  --shadow-lg:0 20px 48px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.55;
+  transition:background .3s ease,color .3s ease;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--ink);margin:0 0 .4em;font-weight:600;letter-spacing:-.01em;}
+h1{font-weight:700;}
+p{margin:0 0 1em;color:var(--ink-soft);}
+a{color:inherit;}
+button{font-family:var(--font-body);cursor:pointer;}
+.mono{font-family:var(--font-mono);}
+img,svg{max-width:100%;display:block;}
+::selection{background:var(--gold-300);color:var(--teal-950);}
+:focus-visible{outline:3px solid var(--gold-500);outline-offset:2px;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--teal-700);background:var(--teal-50);border:1px solid var(--teal-100);
+  padding:5px 12px;border-radius:999px;font-weight:600;
+}
+[data-theme="dark"] .eyebrow{color:var(--gold-300);}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;border-radius:999px;border:none;font-weight:600;font-size:.94rem;
+  transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+  text-decoration:none;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--teal-700);color:#fff;box-shadow:var(--shadow-sm);}
+.btn-primary:hover{background:var(--teal-600);box-shadow:var(--shadow-md);}
+.btn-gold{background:var(--gold-500);color:var(--teal-950);}
+.btn-gold:hover{background:var(--gold-600);box-shadow:var(--shadow-md);}
+.btn-ghost{background:transparent;color:var(--teal-700);border:1.5px solid var(--line);}
+.btn-ghost:hover{border-color:var(--teal-600);}
+[data-theme="dark"] .btn-ghost{color:var(--gold-300);}
+.btn-sm{padding:8px 16px;font-size:.82rem;border-radius:999px;}
+.btn-danger{background:var(--danger);color:#fff;}
+.btn-block{width:100%;}
+.card{background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);}
+.pill{display:inline-block;padding:3px 11px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.02em;}
+.pill-ok{background:#e4f3ea;color:var(--ok);} [data-theme="dark"] .pill-ok{background:#123322;}
+.pill-warn{background:var(--gold-100);color:var(--gold-700);}
+.pill-danger{background:#f6e3de;color:var(--danger);} [data-theme="dark"] .pill-danger{background:#3a1c14;}
+.pill-info{background:var(--teal-50);color:var(--teal-700);} [data-theme="dark"] .pill-info{background:#0f3a33;color:var(--gold-300);}
+.grid{display:grid;gap:20px;}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+input,select,textarea{
+  width:100%;padding:11px 13px;border-radius:10px;border:1.5px solid var(--line);
+  background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:.94rem;
+}
+textarea{resize:vertical;min-height:90px;}
+label{display:block;font-size:.82rem;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
+.field{margin-bottom:16px;}
+.hidden{display:none !important;}
+.section{padding:64px 0;}
+.section-tight{padding:36px 0;}
+.divider{height:1px;background:var(--line);margin:0;}
+
+/* ---- Top bar / nav ---- */
+.topbar{position:sticky;top:0;z-index:80;background:color-mix(in srgb, var(--paper) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1180px;margin:0 auto;}
+.brand{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none;}
+.brand-mark{width:38px;height:38px;border-radius:11px;background:conic-gradient(from 210deg, var(--teal-600), var(--gold-500), var(--teal-600));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-weight:700;font-size:1.1rem;flex-shrink:0;}
+.brand-text{font-family:var(--font-display);font-weight:700;font-size:1.12rem;line-height:1;}
+.brand-text small{display:block;font-family:var(--font-mono);font-weight:500;font-size:.6rem;letter-spacing:.1em;color:var(--ink-soft);margin-top:3px;text-transform:uppercase;}
+.navlinks{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.navlink{padding:8px 13px;border-radius:999px;border:none;background:transparent;color:var(--ink-soft);font-size:.86rem;font-weight:600;}
+.navlink:hover{background:var(--teal-50);color:var(--teal-700);}
+.navlink.active{background:var(--teal-700);color:#fff;}
+.navactions{display:flex;gap:8px;align-items:center;}
+.icon-btn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:var(--paper-raised);display:flex;align-items:center;justify-content:center;font-size:1.05rem;}
+.mobile-toggle{display:none;}
+@media(max-width:980px){
+  .navlinks{display:none;}
+  .mobile-toggle{display:flex;}
+}
+
+/* ---- Hero / Orbit signature ---- */
+.hero{position:relative;overflow:hidden;padding:70px 0 40px;background:radial-gradient(ellipse at top right, var(--teal-50), var(--paper) 60%);}
+[data-theme="dark"] .hero{background:radial-gradient(ellipse at top right, var(--teal-900), var(--paper) 65%);}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+.hero h1{font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1.05;margin:.4em 0 .3em;}
+.hero h1 em{font-style:normal;color:var(--teal-600);}
+[data-theme="dark"] .hero h1 em{color:var(--gold-300);}
+.hero-lede{font-size:1.08rem;max-width:52ch;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+.orbit{position:relative;width:100%;aspect-ratio:1/1;max-width:440px;margin:0 auto;}
+.orbit-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;background:linear-gradient(160deg,var(--teal-600),var(--teal-800));display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;font-family:var(--font-display);font-weight:700;font-size:1rem;box-shadow:0 12px 30px rgba(15,69,63,.35);z-index:5;padding:8px;}
+.orbit-ring{position:absolute;top:50%;left:50%;border:1.5px dashed var(--line);border-radius:50%;transform:translate(-50%,-50%);}
+.orbit-ring.r1{width:70%;height:70%;animation:spin 40s linear infinite;}
+.orbit-ring.r2{width:98%;height:98%;animation:spin 60s linear infinite reverse;}
+@keyframes spin{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+.orbit-node{position:absolute;width:74px;height:74px;border-radius:50%;background:var(--paper-raised);border:1.5px solid var(--line);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.3rem;transform:translate(-50%,-50%);transition:transform .2s ease,box-shadow .2s ease;cursor:pointer;}
+.orbit-node span{font-size:.56rem;font-weight:700;margin-top:2px;color:var(--ink-soft);text-align:center;line-height:1.1;}
+.orbit-node:hover{transform:translate(-50%,-50%) scale(1.12);box-shadow:var(--shadow-md);border-color:var(--gold-500);}
+@media(prefers-reduced-motion:reduce){.orbit-ring{animation:none;}}
+
+/* ---- Department cards ---- */
+.dept-card{padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .15s ease, box-shadow .15s ease;cursor:pointer;}
+.dept-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--gold-500);}
+.dept-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;background:var(--teal-50);}
+[data-theme="dark"] .dept-icon{background:var(--teal-900);}
+.dept-card h3{font-size:1.08rem;margin-bottom:2px;}
+.dept-card p{font-size:.87rem;margin-bottom:6px;}
+.dept-list{font-size:.8rem;color:var(--ink-soft);padding-left:0;list-style:none;margin:0 0 8px;}
+.dept-list li{padding:3px 0 3px 16px;position:relative;}
+.dept-list li:before{content:"›";position:absolute;left:0;color:var(--gold-600);font-weight:700;}
+
+/* ---- Leadership ---- */
+.leader-card{padding:26px;display:flex;gap:18px;align-items:flex-start;}
+.leader-avatar{width:64px;height:64px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:#fff;background:linear-gradient(160deg,var(--teal-600),var(--teal-900));}
+.leader-avatar.gold{background:linear-gradient(160deg,var(--gold-500),var(--gold-700));color:var(--teal-950);}
+.leader-role{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);font-weight:700;margin-bottom:4px;}
+
+/* ---- App shell (department views) ---- */
+.app-shell{display:none;min-height:70vh;}
+.app-shell.active{display:block;}
+.app-header{background:var(--teal-900);color:#fff;padding:34px 0 22px;}
+.app-header .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;}
+.app-header h2{color:#fff;margin-bottom:4px;}
+.app-header p{color:#cfe4de;margin:0;max-width:60ch;font-size:.92rem;}
+.back-link{color:#cfe4de;font-size:.82rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-bottom:10px;}
+.tabbar{display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid var(--line);padding:14px 0 0;background:var(--paper);position:sticky;top:63px;z-index:40;position:relative;}
+.tabbar .wrap{display:flex;gap:6px;overflow-x:auto;position:relative;}
+.tabbar::after{content:"";position:absolute;top:0;right:0;bottom:0;width:36px;pointer-events:none;background:linear-gradient(to right, transparent, var(--paper) 85%);}
+.tab-btn{padding:10px 16px;border:none;background:transparent;border-bottom:3px solid transparent;color:var(--ink-soft);font-weight:600;font-size:.85rem;white-space:nowrap;}
+.tab-btn.active{color:var(--teal-700);border-bottom-color:var(--teal-600);}
+[data-theme="dark"] .tab-btn.active{color:var(--gold-300);border-bottom-color:var(--gold-500);}
+.tabpanel{display:none;padding:32px 0 64px;}
+.tabpanel.active{display:block;}
+.subhead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px;}
+
+table{width:100%;border-collapse:collapse;font-size:.87rem;}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);}
+th{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);}
+tr:hover td{background:var(--teal-50);}
+[data-theme="dark"] tr:hover td{background:var(--teal-900);}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper-raised);}
+
+.list-item{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--paper-raised);margin-bottom:12px;}
+.list-item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.empty-state{text-align:center;padding:48px 20px;color:var(--ink-soft);border:1.5px dashed var(--line);border-radius:var(--radius);}
+.empty-state .big{font-size:2.2rem;margin-bottom:6px;}
+
+.modal-bg{position:fixed;inset:0;background:rgba(7,33,31,.55);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
+.modal-bg.active{display:flex;}
+.modal{background:var(--paper-raised);border-radius:16px;max-width:520px;width:100%;max-height:88vh;overflow-y:auto;padding:28px;box-shadow:var(--shadow-lg);position:relative;}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--teal-50);border:none;width:32px;height:32px;border-radius:50%;font-size:1rem;}
+
+.toast-wrap{position:fixed;bottom:22px;right:22px;z-index:300;display:flex;flex-direction:column;gap:10px;}
+.toast{background:var(--teal-900);color:#fff;padding:13px 18px;border-radius:12px;font-size:.86rem;box-shadow:var(--shadow-lg);max-width:320px;animation:toastin .25s ease;}
+@keyframes toastin{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* alphabet */
+.abc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:14px;}
+.abc-card{padding:16px 8px;text-align:center;border:1.5px solid var(--line);border-radius:16px;background:var(--paper-raised);}
+.abc-letter{font-family:var(--font-display);font-size:2.1rem;font-weight:800;color:var(--teal-700);}
+[data-theme="dark"] .abc-letter{color:var(--gold-300);}
+.abc-emoji{font-size:2rem;margin:4px 0;}
+.abc-word{font-weight:700;font-size:.85rem;}
+
+/* CBT */
+.quiz-progress{height:8px;border-radius:999px;background:var(--teal-50);overflow:hidden;margin-bottom:20px;}
+.quiz-progress-bar{height:100%;background:var(--gold-500);transition:width .3s ease;}
+.quiz-option{display:block;width:100%;text-align:left;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper-raised);margin-bottom:10px;font-size:.92rem;}
+.quiz-option.selected{border-color:var(--teal-600);background:var(--teal-50);}
+[data-theme="dark"] .quiz-option.selected{background:var(--teal-900);}
+.quiz-option.correct{border-color:var(--ok);background:#e4f3ea;}
+.quiz-option.wrong{border-color:var(--danger);background:#f6e3de;}
+.timer-chip{font-family:var(--font-mono);background:var(--teal-900);color:#fff;padding:8px 16px;border-radius:999px;font-weight:600;}
+.score-ring{width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--teal-600) calc(var(--pct)*1%), var(--teal-50) 0);display:flex;align-items:center;justify-content:center;margin:0 auto;}
+.score-ring-inner{width:98px;height:98px;border-radius:50%;background:var(--paper-raised);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.score-ring-inner b{font-size:1.5rem;font-family:var(--font-display);}
+
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+.cal-day{aspect-ratio:1/1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.78rem;border:1px solid var(--line);background:var(--paper-raised);}
+.cal-day.period{background:var(--clay-500);color:#fff;border-color:var(--clay-500);}
+.cal-day.fertile{background:var(--gold-300);border-color:var(--gold-500);}
+.cal-day.ovulation{background:var(--gold-600);color:#fff;border-color:var(--gold-600);}
+.cal-day.today{outline:2.5px solid var(--teal-600);}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;margin-top:12px;}
+.legend span{display:inline-flex;align-items:center;gap:6px;}
+.dot{width:12px;height:12px;border-radius:4px;display:inline-block;}
+
+/* accordion */
+.accordion-item{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--paper-raised);}
+.accordion-head{width:100%;text-align:left;padding:15px 18px;background:transparent;border:none;font-weight:700;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;}
+.accordion-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 18px;}
+.accordion-body.open{max-height:400px;padding:0 18px 16px;}
+
+/* footer */
+footer{background:var(--teal-950);color:#cfe4de;padding:50px 0 24px;margin-top:0;}
+footer h4{color:#fff;font-size:.95rem;}
+footer a{color:#cfe4de;text-decoration:none;font-size:.86rem;}
+footer a:hover{color:var(--gold-300);}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;}
+@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr;}}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;color:#8fada6;}
+
+.chat-window{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper-raised);height:360px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;}
+.chat-bubble{max-width:78%;padding:10px 14px;border-radius:14px;font-size:.88rem;}
+.chat-bubble.user{align-self:flex-end;background:var(--teal-700);color:#fff;border-bottom-right-radius:4px;}
+.chat-bubble.bot{align-self:flex-start;background:var(--teal-50);color:var(--ink);border-bottom-left-radius:4px;}
+[data-theme="dark"] .chat-bubble.bot{background:var(--teal-900);}
+
+.stat-card{padding:18px;text-align:center;}
+.stat-card b{display:block;font-family:var(--font-display);font-size:1.7rem;color:var(--teal-700);}
+[data-theme="dark"] .stat-card b{color:var(--gold-300);}
+.stat-card span{font-size:.76rem;color:var(--ink-soft);}
+
+.write-canvas{border:2px dashed var(--line);border-radius:16px;touch-action:none;background:var(--paper-raised);cursor:crosshair;width:100%;height:260px;}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+.note{font-size:.78rem;color:var(--ink-soft);background:var(--teal-50);border:1px solid var(--teal-100);padding:10px 13px;border-radius:10px;}
+[data-theme="dark"] .note{background:var(--teal-900);border-color:var(--teal-800);}
+</style>
+</head>
+<body data-theme="light">
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" onclick="go('hub')">
+      <div class="brand-mark">M</div>
+      <div class="brand-text">MACOKI<small>Digital Ecosystem</small></div>
+    </a>
+    <nav class="navlinks" id="mainNav">
+      <button class="navlink active" data-nav="hub" onclick="go('hub')">Hub</button>
+      <button class="navlink" data-nav="health" onclick="go('health')">Healthcare</button>
+      <button class="navlink" data-nav="learn" onclick="go('learn')">Learning</button>
+      <button class="navlink" data-nav="inventory" onclick="go('inventory')">Inventory</button>
+      <button class="navlink" data-nav="nursery" onclick="go('nursery')">Nursery</button>
+      <button class="navlink" data-nav="women" onclick="go('women')">Women's Health</button>
+    </nav>
+    <div class="navactions">
+      <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle dark mode">🌙</button>
+      <button class="icon-btn mobile-toggle" onclick="toggleMobileNav()" title="Menu">☰</button>
+    </div>
+  </div>
+  <div id="mobileNav" class="hidden" style="border-top:1px solid var(--line);padding:10px 24px;display:flex;flex-direction:column;gap:6px;">
+    <button class="navlink" onclick="go('hub')">Hub</button>
+    <button class="navlink" onclick="go('health')">Healthcare</button>
+    <button class="navlink" onclick="go('learn')">Learning</button>
+    <button class="navlink" onclick="go('inventory')">Inventory</button>
+    <button class="navlink" onclick="go('nursery')">Nursery</button>
+    <button class="navlink" onclick="go('women')">Women's Health</button>
+  </div>
+</div>
+
+<!-- ============ HUB VIEW ============ -->
+<div class="app-shell active" id="view-hub">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Afaukwu Autonomous Community · Ikwuano LGA · Abia State</span>
+        <h1>Everything you need, <em>connected</em> in one trusted place.</h1>
+        <p class="hero-lede">The MACOKI Master Hub is the single gateway to healthcare, education, hospital &amp; pharmacy inventory, early-years learning, and women's health — built by a community clinic, for the community it serves.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary" onclick="go('health')">Enter Healthcare Portal</button>
+          <button class="btn btn-ghost" onclick="scrollToId('about')">Read our story</button>
+        </div>
+        <div class="badge-row">
+          <span class="pill pill-ok">24/7 Clinic &amp; Maternity</span>
+          <span class="pill pill-info">School: Mon–Fri, 8am–2pm</span>
+          <span class="pill pill-warn">☎ 07053477686 / 09037277433</span>
+        </div>
+      </div>
+      <div class="orbit" id="orbitWidget">
+        <div class="orbit-ring r2"></div>
+        <div class="orbit-ring r1"></div>
+        <div class="orbit-core">MACOKI<br>HUB</div>
+        <!-- nodes positioned via JS -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" id="about">
+    <div class="wrap">
+      <span class="eyebrow">About Us</span>
+      <h2 style="margin-top:10px;max-width:22ch;">MACOKI Clinic and Maternity Home</h2>
+      <div class="grid grid-2" style="align-items:start;margin-top:18px;">
+        <div>
+          <p>Welcome to the <strong>MACOKI Digital Ecosystem</strong>, a connected digital platform created to bring healthcare, education, patient services, professional services, school learning, pharmacy and inventory management, and maternal &amp; reproductive health information together in one convenient place.</p>
+          <p>MACOKI Clinic and Maternity Home is the healthcare foundation of this ecosystem — designed to provide accessible, compassionate, preventive, maternal, child, community and general healthcare, while using appropriate digital systems to improve communication, record management, appointment coordination, health education, and continuity of care.</p>
+          <p>Instead of requiring patients, students, professionals and parents to navigate many unrelated platforms, the MACOKI Master Hub provides one central gateway to the services that matter to them — <em>«Everything you need, connected in one trusted place.»</em></p>
+        </div>
+        <div class="grid" style="gap:14px;">
+          <div class="card" style="padding:20px;">
+            <div class="eyebrow">Our Vision</div>
+            <p style="margin-top:10px;margin-bottom:0;">To build a trusted, accessible and technology-enabled healthcare and education ecosystem that improves the quality, accessibility, efficiency and continuity of essential services for individuals, families and communities.</p>
+          </div>
+          <div class="card" style="padding:20px;">
+            <div class="eyebrow">Our Mission</div>
+            <p style="margin-top:10px;margin-bottom:0;">To provide compassionate, accessible and responsible healthcare and educational services while using appropriate technology to connect people with information, professionals and services — promoting preventive care, maternal and child health, health education, and responsible digital health management.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-4" style="margin-top:26px;">
+        <div class="card"><div class="eyebrow" style="margin:16px 0 0 16px;">Compassion</div><p style="padding:8px 16px 16px;font-size:.85rem;">Every person treated with dignity, empathy and respect.</p></div>
+        <div class="card"><div class="eyebrow" style="margin:16px 0 0 16px;">Integrity</div><p style="padding:8px 16px 16px;font-size:.85rem;">Honesty, transparency and accountability, always.</p></div>
+        <div class="card"><div class="eyebrow" style="margin:16px 0 0 16px;">Accessibility</div><p style="padding:8px 16px 16px;font-size:.85rem;">Useful services and information, easier to reach.</p></div>
+        <div class="card"><div class="eyebrow" style="margin:16px 0 0 16px;">Privacy</div><p style="padding:8px 16px 16px;font-size:.85rem;">Personal and health information handled with care.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" style="background:var(--teal-50);">
+    <div class="wrap">
+      <span class="eyebrow">Leadership</span>
+      <h2 style="margin-top:10px;">The people behind MACOKI</h2>
+      <div class="grid grid-2" style="margin-top:18px;">
+        <div class="leader-card card">
+          <div class="leader-avatar">ACO</div>
+          <div>
+            <div class="leader-role">Chief Executive Officer</div>
+            <h3>Mrs. Amarachukwu Comfort Okeanya</h3>
+            <p>Mrs. Amarachukwu Comfort Okeanya is the Chief Executive Officer of MACOKI Clinic and Maternity Home. She provides leadership and strategic direction for the organization, championing a healthcare environment centered on compassionate service, professionalism, accountability and community wellbeing.</p>
+            <p style="margin-bottom:0;">Under her leadership, MACOKI continues to strengthen patient-centered healthcare, maternal and child health services, community health initiatives, professional collaboration, digital healthcare delivery and quality improvement — carrying forward her vision of a facility that leads with both heart and standard.</p>
+          </div>
+        </div>
+        <div class="leader-card card">
+          <div class="leader-avatar gold">OKM</div>
+          <div>
+            <div class="leader-role">Chairman</div>
+            <h3>Mr. Okeanya Kingsley Madukaibeya</h3>
+            <p>Mr. Okeanya Kingsley Madukaibeya is the Chairman of MACOKI — a Community Health Practitioner (CHP) and Public Health Practitioner (PHP) with hands-on experience across community and clinical health services, including maternal and child health, immunization, patient assessment, emergency and first-aid support, infection prevention and control, family planning, and healthcare administration and coordination.</p>
+            <p>He holds a Diploma in Community Health and is completing a B.Sc. in Public Health at the National Open University of Nigeria (NOUN), alongside training in Cybersecurity Fundamentals at Auxano Institute of Technology — a combination that shapes his hands-on interest in healthcare technology and digital service delivery, and his conviction that responsible digital systems belong in every community clinic.</p>
+            <p style="margin-bottom:0;">As Chairman, he leads MACOKI's long-term strategic development and the integration of healthcare, education and technology into one connected ecosystem — building not just a facility, but a structured platform through which people can obtain knowledge, connect with professionals and access essential services, one login at a time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <span class="eyebrow">The Master Hub</span>
+      <h2 style="margin-top:10px;">Five departments. One login. One home.</h2>
+      <p style="max-width:60ch;">Select a department below to explore its portal. Everything you build here — registrations, bookings, records, scores — is saved locally in your browser as a working demonstration, ready to be connected to a real backend and database.</p>
+      <div class="grid grid-3" style="margin-top:10px;">
+        <div class="dept-card card" onclick="go('health')">
+          <div class="dept-icon">🩺</div>
+          <h3>Healthcare Portal</h3>
+          <p>Client &amp; patient accounts, professional directory, appointments, ANC/surgery requests, lab bookings, prescriptions, complaints and emergency access.</p>
+          <ul class="dept-list"><li>Register &amp; log in</li><li>Book appointments</li><li>Ask MACOKI health Q&amp;A</li></ul>
+          <button class="btn btn-ghost btn-sm">Open portal →</button>
+        </div>
+        <div class="dept-card card" onclick="go('learn')">
+          <div class="dept-icon">📚</div>
+          <h3>Learning &amp; Education</h3>
+          <p>Student registration, university course centre, a CBT practice engine with scoring and timing, and a digital library of licensed resources.</p>
+          <ul class="dept-list"><li>Practice CBT by subject</li><li>Track your best score</li><li>Browse the library</li></ul>
+          <button class="btn btn-ghost btn-sm">Open portal →</button>
+        </div>
+        <div class="dept-card card" onclick="go('inventory')">
+          <div class="dept-icon">💊</div>
+          <h3>Hospital &amp; Pharmacy Inventory</h3>
+          <p>Staff-only drug and supply inventory — batch numbers, manufacture &amp; expiry dates, stock movement, and dispensing records.</p>
+          <ul class="dept-list"><li>Track expiry automatically</li><li>Log every stock movement</li><li>Record dispensing</li></ul>
+          <button class="btn btn-ghost btn-sm">Open portal →</button>
+        </div>
+        <div class="dept-card card" onclick="go('nursery')">
+          <div class="dept-icon">🧸</div>
+          <h3>Nursery &amp; Children's Learning</h3>
+          <p>A–Z with pictures and sound, a writing practice pad, nursery subjects, and a supervised, child-friendly learning assistant.</p>
+          <ul class="dept-list"><li>Hear every letter spoken</li><li>Trace letters &amp; shapes</li><li>Ask the learning buddy</li></ul>
+          <button class="btn btn-ghost btn-sm">Open portal →</button>
+        </div>
+        <div class="dept-card card" onclick="go('women')">
+          <div class="dept-icon">🌸</div>
+          <h3>Women's &amp; Maternal Health</h3>
+          <p>Menstrual cycle and ovulation tracking, a personal calendar, registration, and answers to common pregnancy &amp; family-planning questions.</p>
+          <ul class="dept-list"><li>Predict your next cycle</li><li>See your fertile window</li><li>Read maternal health FAQs</li></ul>
+          <button class="btn btn-ghost btn-sm">Open portal →</button>
+        </div>
+        <div class="dept-card card" onclick="go('health');switchTab('health','emergency')" style="background:var(--gold-100);border-color:var(--gold-500);">
+          <div class="dept-icon" style="background:var(--gold-500);color:#fff;">🚨</div>
+          <h3>Emergency Help</h3>
+          <p>Immediate access to MACOKI's emergency line and directions — because some moments cannot wait for a menu.</p>
+          <ul class="dept-list"><li>Call 07053477686</li><li>Call 09037277433</li><li>Share your location</li></ul>
+          <button class="btn btn-gold btn-sm">Get help now →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="grid grid-4">
+        <div class="card stat-card"><b>7</b><span>Connected departments</span></div>
+        <div class="card stat-card"><b>24/7</b><span>Clinic &amp; maternity care</span></div>
+        <div class="card stat-card"><b>1</b><span>Login for the whole hub</span></div>
+        <div class="card stat-card"><b>100%</b><span>Built from the community, for it</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ HEALTHCARE VIEW ============ -->
+<div class="app-shell" id="view-health">
+  <div class="app-header">
+    <div class="wrap">
+      <a class="back-link" onclick="go('hub')">← Back to Hub</a>
+      <h2>🩺 MACOKI Healthcare Portal</h2>
+      <p>Your account, your care team, and your records — one secure place.</p>
+    </div>
+  </div>
+  <div class="tabbar"><div class="wrap" id="healthTabs"></div></div>
+  <div class="wrap">
+
+    <!-- Account -->
+    <div class="tabpanel" data-panel="account">
+      <div id="healthLoggedOut">
+        <div class="grid grid-2">
+          <div class="card" style="padding:24px;">
+            <h3>Create your patient/client account</h3>
+            <form onsubmit="return registerPatient(event)">
+              <div class="field"><label>Full name</label><input required id="regName"></div>
+              <div class="grid grid-2">
+                <div class="field"><label>Date of birth</label><input type="date" required id="regDob"></div>
+                <div class="field"><label>Sex</label><select id="regSex"><option>Female</option><option>Male</option></select></div>
+              </div>
+              <div class="field"><label>Phone</label><input required id="regPhone" placeholder="0803..."></div>
+              <div class="field"><label>Email</label><input type="email" required id="regEmail"></div>
+              <div class="field"><label>Password</label><input type="password" required id="regPass" minlength="4"></div>
+              <div class="field"><label>Known allergies (optional)</label><input id="regAllergy" placeholder="e.g. Penicillin"></div>
+              <button class="btn btn-primary btn-block" type="submit">Register</button>
+            </form>
+          </div>
+          <div class="card" style="padding:24px;">
+            <h3>Already registered? Log in</h3>
+            <form onsubmit="return loginPatient(event)">
+              <div class="field"><label>Email</label><input type="email" required id="loginEmail"></div>
+              <div class="field"><label>Password</label><input type="password" required id="loginPass"></div>
+              <button class="btn btn-gold btn-block" type="submit">Log in</button>
+            </form>
+            <p class="note" style="margin-top:16px;">Demo account: <strong>demo@macoki.com</strong> / <strong>demo1234</strong></p>
+          </div>
+        </div>
+      </div>
+      <div id="healthLoggedIn" class="hidden">
+        <div class="subhead">
+          <h3 id="patientWelcome"></h3>
+          <button class="btn btn-ghost btn-sm" onclick="logoutPatient()">Log out</button>
+        </div>
+        <div class="grid grid-3">
+          <div class="card" style="padding:20px;">
+            <div class="eyebrow">Profile</div>
+            <p id="profileDetails" style="margin-top:10px;font-size:.88rem;"></p>
+          </div>
+          <div class="card" style="padding:20px;">
+            <div class="eyebrow">Upcoming appointments</div>
+            <p id="profileApptCount" style="font-size:2rem;font-family:var(--font-display);margin:8px 0 0;color:var(--teal-700);"></p>
+          </div>
+          <div class="card" style="padding:20px;">
+            <div class="eyebrow">Open complaints</div>
+            <p id="profileComplaintCount" style="font-size:2rem;font-family:var(--font-display);margin:8px 0 0;color:var(--teal-700);"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directory -->
+    <div class="tabpanel" data-panel="directory">
+      <div class="subhead">
+        <h3>Find a healthcare professional</h3>
+      </div>
+      <div class="grid grid-2" style="margin-bottom:16px;">
+        <input id="dirSearch" placeholder="Search by name or keyword…" oninput="renderDirectory()">
+        <select id="dirFilter" onchange="renderDirectory()">
+          <option value="">All specialties</option>
+        </select>
+      </div>
+      <div class="grid grid-3" id="directoryList"></div>
+    </div>
+
+    <!-- Appointments -->
+    <div class="tabpanel" data-panel="appointments">
+      <div class="grid grid-2">
+        <div class="card" style="padding:22px;">
+          <h3>Book an appointment</h3>
+          <form onsubmit="return bookAppointment(event)">
+            <div class="field"><label>Service</label>
+              <select id="apptService">
+                <option>General Consultation</option><option>ANC (Antenatal Care)</option><option>Postnatal Care</option>
+                <option>Family Planning</option><option>Child Health</option><option>Dental Consultation</option>
+                <option>Specialist Consultation</option><option>Follow-up Consultation</option><option>Health Education</option>
+              </select>
+            </div>
+            <div class="field"><label>Preferred provider</label><select id="apptProvider"></select></div>
+            <div class="grid grid-2">
+              <div class="field"><label>Date</label><input type="date" id="apptDate" required></div>
+              <div class="field"><label>Time</label><input type="time" id="apptTime" required></div>
+            </div>
+            <div class="field"><label>Notes (optional)</label><textarea id="apptNotes" placeholder="Reason for visit"></textarea></div>
+            <button class="btn btn-primary btn-block" type="submit">Request appointment</button>
+          </form>
+        </div>
+        <div>
+          <h3>Your appointments</h3>
+          <div id="apptList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maternity / Surgery -->
+    <div class="tabpanel" data-panel="maternity">
+      <div class="note" style="margin-bottom:18px;">This is a booking &amp; coordination request only. A qualified clinician will review every request — including ANC, C/S and other procedures — and determine what is medically appropriate. It is not an automatic authorization.</div>
+      <div class="grid grid-2">
+        <div class="card" style="padding:22px;">
+          <h3>Request maternity / surgical service</h3>
+          <form onsubmit="return bookMaternity(event)">
+            <div class="field"><label>Service type</label>
+              <select id="matType">
+                <option>Antenatal Care (ANC)</option><option>Postnatal Care</option><option>Birth Planning</option>
+                <option>Cesarean Section (C/S)</option><option>Family Planning</option><option>Newborn Care</option>
+                <option>Other Obstetric / Surgical Service</option>
+              </select>
+            </div>
+            <div class="field"><label>Estimated / preferred date</label><input type="date" id="matDate" required></div>
+            <div class="field"><label>Additional details</label><textarea id="matNotes" placeholder="Gestational age, history, symptoms, etc."></textarea></div>
+            <button class="btn btn-primary btn-block" type="submit">Submit request</button>
+          </form>
+        </div>
+        <div>
+          <h3>Your requests</h3>
+          <div id="matList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laboratory -->
+    <div class="tabpanel" data-panel="lab">
+      <div class="grid grid-2">
+        <div class="card" style="padding:22px;">
+          <h3>Book a laboratory test</h3>
+          <form onsubmit="return bookLab(event)">
+            <div class="field"><label>Test</label>
+              <select id="labTest">
+                <option>Full Blood Count (FBC)</option><option>Malaria Parasite Test</option><option>Widal Test</option>
+                <option>HIV Screening</option><option>Genotype</option><option>Blood Group</option>
+                <option>Pregnancy Test (β-hCG)</option><option>Urinalysis</option><option>Fasting Blood Sugar</option>
+              </select>
+            </div>
+            <div class="field"><label>Preferred date</label><input type="date" id="labDate" required></div>
+            <button class="btn btn-primary btn-block" type="submit">Book test</button>
+          </form>
+        </div>
+        <div>
+          <h3>Your lab bookings</h3>
+          <div id="labList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Health info -->
+    <div class="tabpanel" data-panel="info">
+      <input id="infoSearch" placeholder="Search health topics…" style="margin-bottom:18px;" oninput="renderHealthInfo()">
+      <div class="grid grid-3" id="infoGrid"></div>
+      <p class="note" style="margin-top:16px;">General information here does not replace professional medical assessment. If you have symptoms that concern you, please book an appointment or use Emergency Help.</p>
+    </div>
+
+    <!-- Ask MACOKI -->
+    <div class="tabpanel" data-panel="ask">
+      <div class="grid grid-2">
+        <div>
+          <h3>Ask MACOKI</h3>
+          <p class="note">General educational information only — not a diagnosis. Urgent symptoms should go to Emergency Help or a real appointment.</p>
+          <div class="chat-window" id="askChat"></div>
+          <form onsubmit="return askMacoki(event)" style="display:flex;gap:8px;margin-top:12px;">
+            <input id="askInput" placeholder="e.g. What causes fever in pregnancy?" required>
+            <button class="btn btn-primary" type="submit">Ask</button>
+          </form>
+        </div>
+        <div>
+          <h3>Popular questions</h3>
+          <div id="askSuggestions"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Complaints -->
+    <div class="tabpanel" data-panel="complaints">
+      <div class="grid grid-2">
+        <div class="card" style="padding:22px;">
+          <h3>Submit a complaint or feedback</h3>
+          <form onsubmit="return submitComplaint(event)">
+            <div class="field"><label>Category</label>
+              <select id="cplCategory"><option>Service complaint</option><option>Staff-related</option><option>Waiting time</option><option>Billing concern</option><option>Privacy concern</option><option>Technical problem</option><option>Suggestion</option><option>Compliment</option></select>
+            </div>
+            <div class="field"><label>Details</label><textarea id="cplDetails" required></textarea></div>
+            <button class="btn btn-primary btn-block" type="submit">Submit</button>
+          </form>
+        </div>
+        <div>
+          <h3>Track your complaints</h3>
+          <div id="cplList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prescriptions -->
+    <div class="tabpanel" data-panel="rx">
+      <h3>Your prescriptions</h3>
+      <div id="rxList" class="table-wrap"></div>
+      <p class="note" style="margin-top:14px;">Only authorized clinicians and pharmacy staff can create, approve or dispense prescriptions. This view is read-only for patients.</p>
+    </div>
+
+    <!-- Emergency -->
+    <div class="tabpanel" data-panel="emergency">
+      <div class="card" style="padding:34px;text-align:center;background:var(--gold-100);border-color:var(--gold-500);">
+        <div style="font-size:3rem;">🚨</div>
+        <h2 style="margin:10px 0;">Emergency Help</h2>
+        <p>This digital platform is <strong>not</strong> a substitute for immediate emergency medical care. If this is life-threatening, call now.</p>
+        <div class="hero-ctas" style="justify-content:center;">
+          <a class="btn btn-danger" href="tel:07053477686">📞 Call 07053477686</a>
+          <a class="btn btn-danger" href="tel:09037277433">📞 Call 09037277433</a>
+          <button class="btn btn-ghost" onclick="shareLocation()">📍 Share my location</button>
+        </div>
+        <p id="locResult" style="margin-top:14px;font-weight:600;"></p>
+        <div class="divider" style="margin:24px 0;"></div>
+        <p style="text-align:left;max-width:60ch;margin:0 auto;"><strong>MACOKI Clinic and Maternity Home</strong><br>Afaukwu Autonomous Community, Ikwuano LGA, Abia State, Nigeria<br>Open 24 hours, every day, for hospital &amp; clinic emergencies.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LEARNING VIEW ============ -->
+<div class="app-shell" id="view-learn">
+  <div class="app-header">
+    <div class="wrap">
+      <a class="back-link" onclick="go('hub')">← Back to Hub</a>
+      <h2>📚 MACOKI Learning &amp; Education Portal</h2>
+      <p>Courses, CBT practice, and a licensed digital library — for students from nursery to university.</p>
+    </div>
+  </div>
+  <div class="tabbar"><div class="wrap" id="learnTabs"></div></div>
+  <div class="wrap">
+
+    <div class="tabpanel" data-panel="student">
+      <div id="studentLoggedOut">
+        <div class="grid grid-2">
+          <div class="card" style="padding:24px;">
+            <h3>Student registration</h3>
+            <form onsubmit="return registerStudent(event)">
+              <div class="field"><label>Full name</label><input required id="sName"></div>
+              <div class="field"><label>Institution</label><input required id="sInst" placeholder="e.g. National Open University of Nigeria"></div>
+              <div class="grid grid-2">
+                <div class="field"><label>Programme</label><input required id="sProg" placeholder="e.g. B.Sc. Public Health"></div>
+                <div class="field"><label>Level</label><input required id="sLevel" placeholder="e.g. 400L"></div>
+              </div>
+              <div class="field"><label>Email</label><input type="email" required id="sEmail"></div>
+              <div class="field"><label>Password</label><input type="password" required id="sPass" minlength="4"></div>
+              <button class="btn btn-primary btn-block" type="submit">Register</button>
+            </form>
+          </div>
+          <div class="card" style="padding:24px;">
+            <h3>Student login</h3>
+            <form onsubmit="return loginStudent(event)">
+              <div class="field"><label>Email</label><input type="email" required id="sLoginEmail"></div>
+              <div class="field"><label>Password</label><input type="password" required id="sLoginPass"></div>
+              <button class="btn btn-gold btn-block" type="submit">Log in</button>
+            </form>
+            <p class="note" style="margin-top:16px;">Demo account: <strong>student@macoki.com</strong> / <strong>learn1234</strong></p>
+          </div>
+        </div>
+      </div>
+      <div id="studentLoggedIn" class="hidden">
+        <div class="subhead"><h3 id="studentWelcome"></h3><button class="btn btn-ghost btn-sm" onclick="logoutStudent()">Log out</button></div>
+        <div class="grid grid-4">
+          <div class="card stat-card"><b id="statAttempts">0</b><span>CBT attempts</span></div>
+          <div class="card stat-card"><b id="statBest">0%</b><span>Best score</span></div>
+          <div class="card stat-card"><b id="statAvg">0%</b><span>Average score</span></div>
+          <div class="card stat-card"><b id="statSubjects">0</b><span>Subjects practiced</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="courses">
+      <h3>University Course Centre</h3>
+      <p>Materials are organized by university, faculty, programme, course and topic. <strong>Public Health</strong> is fully populated below as a working example.</p>
+      <div class="grid grid-2">
+        <div class="card" style="padding:20px;">
+          <div class="eyebrow">B.Sc. Public Health</div>
+          <ul class="dept-list" style="margin-top:10px;">
+            <li>Epidemiology</li><li>Environmental Health</li><li>Community Health</li><li>Health Promotion</li>
+            <li>Health Policy &amp; Management</li><li>Health Information Management</li><li>Occupational Health</li><li>Maternal &amp; Child Health</li>
+          </ul>
+        </div>
+        <div class="card" style="padding:20px;">
+          <div class="eyebrow">Cybersecurity Fundamentals</div>
+          <ul class="dept-list" style="margin-top:10px;">
+            <li>Introduction to Information Security</li><li>Network Fundamentals</li><li>Threats &amp; Vulnerabilities</li>
+            <li>Security Operations (SOC)</li><li>Risk Management</li><li>Ethics &amp; Compliance</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note" style="margin-top:14px;">More programmes and courses can be added to this catalogue as the library grows.</p>
+    </div>
+
+    <div class="tabpanel" data-panel="cbt">
+      <div id="cbtSetup">
+        <h3>CBT Practice</h3>
+        <div class="grid grid-2">
+          <div class="field"><label>Subject</label>
+            <select id="cbtSubject">
+              <option value="epi">Epidemiology (Public Health)</option>
+              <option value="ch">Community Health</option>
+              <option value="cyber">Cybersecurity Fundamentals</option>
+            </select>
+          </div>
+          <div class="field"><label>Time allowed</label>
+            <select id="cbtTime"><option value="300">5 minutes</option><option value="600" selected>10 minutes</option><option value="900">15 minutes</option></select>
+          </div>
+        </div>
+        <p class="note">This demo bank has 10 sample questions per subject, randomized on every attempt. The structure scales to a full 100-question bank per subject.</p>
+        <button class="btn btn-primary" onclick="startCBT()">Start practice test →</button>
+      </div>
+      <div id="cbtRunning" class="hidden">
+        <div class="subhead"><span class="timer-chip" id="cbtTimer">10:00</span><span id="cbtProgressLabel"></span></div>
+        <div class="quiz-progress"><div class="quiz-progress-bar" id="cbtProgressBar" style="width:0%;"></div></div>
+        <h3 id="cbtQuestion"></h3>
+        <div id="cbtOptions"></div>
+        <div style="display:flex;justify-content:space-between;margin-top:16px;">
+          <button class="btn btn-ghost" onclick="cbtPrev()">← Previous</button>
+          <button class="btn btn-primary" onclick="cbtNext()" id="cbtNextBtn">Next →</button>
+        </div>
+      </div>
+      <div id="cbtResult" class="hidden">
+        <div class="card" style="padding:30px;text-align:center;">
+          <div class="score-ring" id="scoreRing"><div class="score-ring-inner"><b id="scorePct"></b><span style="font-size:.7rem;color:var(--ink-soft);">Score</span></div></div>
+          <div class="badge-row" style="justify-content:center;margin-top:16px;">
+            <span class="pill pill-ok" id="scoreCorrect"></span>
+            <span class="pill pill-danger" id="scoreWrong"></span>
+            <span class="pill pill-info" id="scoreUnanswered"></span>
+            <span class="pill pill-warn" id="scoreTime"></span>
+          </div>
+          <div class="hero-ctas" style="justify-content:center;margin-top:20px;">
+            <button class="btn btn-primary" onclick="reviewCBT()">Review answers</button>
+            <button class="btn btn-ghost" onclick="resetCBT()">Try another test</button>
+          </div>
+        </div>
+        <div id="cbtReview" style="margin-top:20px;"></div>
+      </div>
+      <div style="margin-top:30px;">
+        <h3>Your performance history</h3>
+        <div id="cbtHistory" class="table-wrap"></div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="library">
+      <h3>Digital Library</h3>
+      <input id="libSearch" placeholder="Search resources…" style="margin-bottom:16px;" oninput="renderLibrary()">
+      <div class="grid grid-3" id="libGrid"></div>
+      <p class="note" style="margin-top:14px;">MACOKI does not host pirated textbooks. Where a copyrighted work cannot be legally reproduced here, we link to the publisher or a licensed access point.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ INVENTORY VIEW ============ -->
+<div class="app-shell" id="view-inventory">
+  <div class="app-header">
+    <div class="wrap">
+      <a class="back-link" onclick="go('hub')">← Back to Hub</a>
+      <h2>💊 Hospital, Pharmacy &amp; Inventory</h2>
+      <p>Authorized staff only. Not publicly accessible in production.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding:30px 24px;" id="invGate">
+    <div class="card" style="max-width:420px;margin:0 auto;padding:26px;text-align:center;">
+      <h3>Staff sign-in</h3>
+      <p>Enter the demo staff passcode to continue.</p>
+      <form onsubmit="return staffLogin(event)">
+        <div class="field"><input id="staffPass" type="password" placeholder="Passcode" required></div>
+        <button class="btn btn-primary btn-block" type="submit">Enter inventory system</button>
+      </form>
+      <p class="note" style="margin-top:14px;">Demo passcode: <strong>MACOKI-STAFF</strong></p>
+    </div>
+  </div>
+
+  <div id="invApp" class="hidden">
+    <div class="tabbar"><div class="wrap" id="invTabs"></div></div>
+    <div class="wrap">
+
+      <div class="tabpanel" data-panel="dashboard">
+        <div class="grid grid-4">
+          <div class="card stat-card"><b id="invTotal">0</b><span>Total items tracked</span></div>
+          <div class="card stat-card" style="border-color:var(--danger);"><b id="invExpired" style="color:var(--danger);">0</b><span>🔴 Expired</span></div>
+          <div class="card stat-card" style="border-color:var(--gold-500);"><b id="invSoon" style="color:var(--gold-700);">0</b><span>🟠 Expiring ≤ 90 days</span></div>
+          <div class="card stat-card" style="border-color:var(--ok);"><b id="invValid" style="color:var(--ok);">0</b><span>🟢 Valid stock</span></div>
+        </div>
+      </div>
+
+      <div class="tabpanel" data-panel="drugs">
+        <div class="subhead"><h3>Drug inventory</h3><button class="btn btn-primary btn-sm" onclick="openModal('drugModal')">+ Add drug</button></div>
+        <div class="table-wrap"><table id="drugTable"><thead><tr><th>Generic name</th><th>Form</th><th>Qty</th><th>Batch</th><th>Mfg date</th><th>Expiry</th><th>Status</th><th></th></tr></thead><tbody id="drugTbody"></tbody></table></div>
+      </div>
+
+      <div class="tabpanel" data-panel="movement">
+        <div class="subhead"><h3>Stock movement log</h3><button class="btn btn-primary btn-sm" onclick="openModal('moveModal')">+ Log movement</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Item</th><th>Type</th><th>Qty</th><th>Staff</th><th>Date/Time</th><th>Ref</th></tr></thead><tbody id="moveTbody"></tbody></table></div>
+      </div>
+
+      <div class="tabpanel" data-panel="dispensing">
+        <div class="subhead"><h3>Dispensing record</h3></div>
+        <div class="grid grid-2">
+          <div class="card" style="padding:20px;">
+            <form onsubmit="return logDispense(event)">
+              <div class="field"><label>Patient / client ID or name</label><input required id="dsPatient"></div>
+              <div class="field"><label>Prescription number</label><input required id="dsRx" placeholder="RX-0001"></div>
+              <div class="field"><label>Medicine</label><input required id="dsMed"></div>
+              <div class="field"><label>Quantity</label><input required id="dsQty" type="number" min="1"></div>
+              <div class="field"><label>Dispensing staff name</label><input required id="dsStaff"></div>
+              <button class="btn btn-primary btn-block" type="submit">Record dispensing</button>
+            </form>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Patient</th><th>Rx#</th><th>Medicine</th><th>Qty</th><th>Staff</th><th>Time</th></tr></thead><tbody id="dispTbody"></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NURSERY VIEW ============ -->
+<div class="app-shell" id="view-nursery">
+  <div class="app-header">
+    <div class="wrap">
+      <a class="back-link" onclick="go('hub')">← Back to Hub</a>
+      <h2>🧸 MACOKI Nursery &amp; Children's Learning</h2>
+      <p>A safe, simple and friendly place for young children to learn.</p>
+    </div>
+  </div>
+  <div class="tabbar"><div class="wrap" id="nurseryTabs"></div></div>
+  <div class="wrap">
+
+    <div class="tabpanel" data-panel="abc">
+      <h3>ABC Learning Centre</h3>
+      <p>Tap any letter to hear it spoken aloud.</p>
+      <div class="abc-grid" id="abcGrid"></div>
+    </div>
+
+    <div class="tabpanel" data-panel="write">
+      <h3>Writing Practice</h3>
+      <p>Draw with your finger or mouse. Try lines, shapes, letters and numbers.</p>
+      <canvas id="writeCanvas" class="write-canvas"></canvas>
+      <div class="hero-ctas"><button class="btn btn-ghost" onclick="clearCanvas()">Clear pad</button></div>
+    </div>
+
+    <div class="tabpanel" data-panel="subjects">
+      <h3>Nursery subjects</h3>
+      <div class="grid grid-3" id="subjectGrid"></div>
+    </div>
+
+    <div class="tabpanel" data-panel="buddy">
+      <h3>Learning Buddy (supervised AI assistant)</h3>
+      <p class="note">A grown-up should sit with your child while using this. Learning Buddy only talks about letters, numbers, simple words and gentle stories.</p>
+      <div class="chat-window" id="buddyChat"></div>
+      <form onsubmit="return askBuddy(event)" style="display:flex;gap:8px;margin-top:12px;">
+        <input id="buddyInput" placeholder="Ask about a letter, number or story…" required>
+        <button class="btn btn-primary" type="submit">Ask</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ WOMEN'S HEALTH VIEW ============ -->
+<div class="app-shell" id="view-women">
+  <div class="app-header">
+    <div class="wrap">
+      <a class="back-link" onclick="go('hub')">← Back to Hub</a>
+      <h2>🌸 Women's &amp; Maternal Health Portal</h2>
+      <p>Cycle tracking, a personal calendar, and answers to the questions that matter.</p>
+    </div>
+  </div>
+  <div class="tabbar"><div class="wrap" id="womenTabs"></div></div>
+  <div class="wrap">
+
+    <div class="tabpanel" data-panel="account">
+      <div id="womenLoggedOut" class="grid grid-2">
+        <div class="card" style="padding:24px;">
+          <h3>Register</h3>
+          <form onsubmit="return registerWoman(event)">
+            <div class="field"><label>Full name</label><input required id="wName"></div>
+            <div class="field"><label>Date of birth</label><input type="date" required id="wDob"></div>
+            <div class="field"><label>Email</label><input type="email" required id="wEmail"></div>
+            <div class="field"><label>Password</label><input type="password" required id="wPass" minlength="4"></div>
+            <button class="btn btn-primary btn-block" type="submit">Register</button>
+          </form>
+        </div>
+        <div class="card" style="padding:24px;">
+          <h3>Log in</h3>
+          <form onsubmit="return loginWoman(event)">
+            <div class="field"><label>Email</label><input type="email" required id="wLoginEmail"></div>
+            <div class="field"><label>Password</label><input type="password" required id="wLoginPass"></div>
+            <button class="btn btn-gold btn-block" type="submit">Log in</button>
+          </form>
+          <p class="note" style="margin-top:16px;">Demo account: <strong>woman@macoki.com</strong> / <strong>cycle1234</strong></p>
+        </div>
+      </div>
+      <div id="womenLoggedIn" class="hidden">
+        <div class="subhead"><h3 id="womanWelcome"></h3><button class="btn btn-ghost btn-sm" onclick="logoutWoman()">Log out</button></div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="tracker">
+      <div class="grid grid-2">
+        <div class="card" style="padding:22px;">
+          <h3>Cycle tracker</h3>
+          <form onsubmit="return updateCycle(event)">
+            <div class="field"><label>First day of last period</label><input type="date" id="cycleStart" required></div>
+            <div class="grid grid-2">
+              <div class="field"><label>Average cycle length (days)</label><input type="number" id="cycleLen" value="28" min="18" max="45" required></div>
+              <div class="field"><label>Average period length (days)</label><input type="number" id="periodLen" value="5" min="1" max="10" required></div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Update &amp; calculate</button>
+          </form>
+          <div id="cycleSummary" style="margin-top:18px;"></div>
+        </div>
+        <div>
+          <h3>This month</h3>
+          <div class="card" style="padding:18px;">
+            <div class="cal" id="calGrid"></div>
+            <div class="legend">
+              <span><span class="dot" style="background:var(--clay-500);"></span>Period</span>
+              <span><span class="dot" style="background:var(--gold-300);"></span>Fertile window</span>
+              <span><span class="dot" style="background:var(--gold-600);"></span>Ovulation day</span>
+              <span><span class="dot" style="background:var(--paper-raised);border:1px solid var(--line);"></span>Low-fertility / free days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="faq">
+      <h3>Maternal &amp; reproductive health — frequently asked questions</h3>
+      <div id="faqList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand-text" style="color:#fff;">MACOKI<small style="color:#8fada6;">Digital Ecosystem</small></div>
+        <p style="margin-top:12px;max-width:32ch;">Healthcare, education, inventory, early-years learning and women's health — one connected hub, built for our community.</p>
+      </div>
+      <div>
+        <h4>Departments</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+          <a onclick="go('health')" style="cursor:pointer;">Healthcare</a>
+          <a onclick="go('learn')" style="cursor:pointer;">Learning</a>
+          <a onclick="go('inventory')" style="cursor:pointer;">Inventory</a>
+          <a onclick="go('nursery')" style="cursor:pointer;">Nursery</a>
+          <a onclick="go('women')" style="cursor:pointer;">Women's Health</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+          <a href="tel:07053477686">07053477686</a>
+          <a href="tel:09037277433">09037277433</a>
+          <span>Afaukwu Autonomous Community,<br>Ikwuano LGA, Abia State, Nigeria</span>
+        </div>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+          <span>Clinic &amp; Maternity: 24/7, every day</span>
+          <span>School services: Mon–Fri, 8:00am–2:00pm</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 MACOKI Clinic and Maternity Home. All rights reserved.</span>
+      <span>Built as a connected digital ecosystem — frontend demo.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODALS ============ -->
+<div class="modal-bg" id="drugModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('drugModal')">✕</button>
+    <h3>Add drug to inventory</h3>
+    <form onsubmit="return addDrug(event)">
+      <div class="field"><label>Generic name</label><input required id="dGeneric"></div>
+      <div class="field"><label>Brand name</label><input id="dBrand"></div>
+      <div class="grid grid-2">
+        <div class="field"><label>Dosage form</label><select id="dForm"><option>Tablet</option><option>Capsule</option><option>Syrup</option><option>Injection</option><option>Cream</option><option>Suspension</option><option>Drops</option></select></div>
+        <div class="field"><label>Quantity received</label><input required type="number" id="dQty" min="1"></div>
+      </div>
+      <div class="field"><label>Batch number</label><input required id="dBatch"></div>
+      <div class="grid grid-2">
+        <div class="field"><label>Manufacture date</label><input required type="date" id="dMfg"></div>
+        <div class="field"><label>Expiry date</label><input required type="date" id="dExp"></div>
+      </div>
+      <div class="field"><label>Supplier</label><input id="dSupplier"></div>
+      <button class="btn btn-primary btn-block" type="submit">Add to inventory</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-bg" id="moveModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('moveModal')">✕</button>
+    <h3>Log stock movement</h3>
+    <form onsubmit="return addMovement(event)">
+      <div class="field"><label>Item</label><input required id="mItem"></div>
+      <div class="field"><label>Transaction type</label>
+        <select id="mType"><option>Stock received</option><option>Stock issued</option><option>Stock transferred</option><option>Stock returned</option><option>Stock adjusted</option><option>Stock expired</option><option>Stock damaged</option></select>
+      </div>
+      <div class="field"><label>Quantity</label><input required type="number" id="mQty" min="1"></div>
+      <div class="field"><label>Staff member</label><input required id="mStaff"></div>
+      <div class="field"><label>Reason / reference</label><input id="mReason"></div>
+      <button class="btn btn-primary btn-block" type="submit">Log movement</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script>
+/* ============================================================
+   MACOKI — FRONTEND APPLICATION LOGIC
+   All data persisted to localStorage for this demo. Ready to be
+   swapped for real API calls to a backend/database later.
+   ============================================================ */
+
+const DB = {
+  get(k, d){ try{ const v = localStorage.getItem('macoki_'+k); return v? JSON.parse(v): d; }catch(e){return d;} },
+  set(k, v){ localStorage.setItem('macoki_'+k, JSON.stringify(v)); }
+};
+
+function toast(msg){
+  const wrap = document.getElementById('toastWrap');
+  const el = document.createElement('div');
+  el.className='toast'; el.textContent = msg;
+  wrap.appendChild(el);
+  setTimeout(()=>el.remove(), 3200);
+}
+function refFor(prefix){
+  return prefix + '-' + Math.floor(10000+Math.random()*89999);
+}
+function fmtDate(d){
+  const dt = new Date(d);
+  return dt.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+}
+function scrollToId(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+function openModal(id){ document.getElementById(id).classList.add('active'); }
+function closeModal(id){ document.getElementById(id).classList.remove('active'); }
+
+/* ---------------- THEME ---------------- */
+function applyTheme(t){
+  document.body.setAttribute('data-theme', t);
+  document.getElementById('themeBtn').textContent = t==='dark' ? '☀️' : '🌙';
+  DB.set('theme', t);
+}
+function toggleTheme(){
+  const cur = document.body.getAttribute('data-theme');
+  applyTheme(cur==='dark' ? 'light' : 'dark');
+}
+applyTheme(DB.get('theme','light'));
+
+function toggleMobileNav(){
+  document.getElementById('mobileNav').classList.toggle('hidden');
+}
+
+/* ---------------- ROUTER ---------------- */
+const VIEWS = ['hub','health','learn','inventory','nursery','women'];
+function go(view){
+  VIEWS.forEach(v=>{
+    document.getElementById('view-'+v).classList.toggle('active', v===view);
+  });
+  document.querySelectorAll('.navlink[data-nav]').forEach(b=>b.classList.toggle('active', b.dataset.nav===view));
+  document.getElementById('mobileNav').classList.add('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+  window.location.hash = view;
+}
+window.addEventListener('load', ()=>{
+  const h = window.location.hash.replace('#','');
+  if(VIEWS.includes(h)) go(h);
+});
+
+/* ---------------- TAB SYSTEM ---------------- */
+function buildTabs(containerId, appId, tabs, defaultTab){
+  const c = document.getElementById(containerId);
+  c.innerHTML = tabs.map(t=>`<button class="tab-btn" data-tab="${t.id}" onclick="switchTab('${appId}','${t.id}')">${t.label}</button>`).join('');
+  switchTab(appId, defaultTab);
+}
+function switchTab(appId, tabId){
+  const root = document.getElementById('view-'+appId);
+  root.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.tab===tabId));
+  root.querySelectorAll('.tabpanel').forEach(p=>p.classList.toggle('active', p.dataset.panel===tabId));
+}
+
+buildTabs('healthTabs','health',[
+  {id:'account',label:'My Account'},{id:'directory',label:'Find a Professional'},{id:'appointments',label:'Appointments'},
+  {id:'maternity',label:'Maternity / Surgery'},{id:'lab',label:'Laboratory'},{id:'info',label:'Health Info'},
+  {id:'ask',label:'Ask MACOKI'},{id:'complaints',label:'Complaints'},{id:'rx',label:'Prescriptions'},{id:'emergency',label:'🚨 Emergency'}
+],'account');
+
+buildTabs('learnTabs','learn',[
+  {id:'student',label:'My Account'},{id:'courses',label:'Courses'},{id:'cbt',label:'CBT Practice'},{id:'library',label:'Digital Library'}
+],'student');
+
+buildTabs('invTabs','inventory',[
+  {id:'dashboard',label:'Dashboard'},{id:'drugs',label:'Drug Inventory'},{id:'movement',label:'Stock Movement'},{id:'dispensing',label:'Dispensing'}
+],'dashboard');
+
+buildTabs('nurseryTabs','nursery',[
+  {id:'abc',label:'ABC Learning'},{id:'write',label:'Writing Practice'},{id:'subjects',label:'Subjects'},{id:'buddy',label:'Learning Buddy'}
+],'abc');
+
+buildTabs('womenTabs','women',[
+  {id:'account',label:'My Account'},{id:'tracker',label:'Cycle Tracker'},{id:'faq',label:'FAQs'}
+],'account');
+
+/* ---------------- ORBIT NODES ---------------- */
+const orbitDepts = [
+  {icon:'🩺',label:'Healthcare',view:'health'},
+  {icon:'📚',label:'Learning',view:'learn'},
+  {icon:'💊',label:'Inventory',view:'inventory'},
+  {icon:'🧸',label:'Nursery',view:'nursery'},
+  {icon:'🌸',label:"Women's Health",view:'women'},
+];
+(function placeOrbit(){
+  const box = document.getElementById('orbitWidget');
+  const R = 44; // percent radius
+  orbitDepts.forEach((d,i)=>{
+    const angle = (i / orbitDepts.length) * 2*Math.PI - Math.PI/2;
+    const x = 50 + R*Math.cos(angle);
+    const y = 50 + R*Math.sin(angle);
+    const el = document.createElement('div');
+    el.className='orbit-node';
+    el.style.left = x+'%'; el.style.top = y+'%';
+    el.innerHTML = `${d.icon}<span>${d.label}</span>`;
+    el.onclick = ()=>go(d.view);
+    box.appendChild(el);
+  });
+})();
+
+/* ================= HEALTHCARE PORTAL ================= */
+const PROFESSIONALS = [
+  {name:'Dr. Ifeoma Nwachukwu', role:'Physician', specialty:'Family Medicine', avail:'Mon–Fri, 9am–4pm'},
+  {name:'Dr. Chidi Okafor', role:'Obstetrician & Gynecologist', specialty:'Obstetrics & Gynecology', avail:'Mon, Wed, Fri'},
+  {name:'Mrs. Ngozi Eze', role:'Midwife', specialty:'Maternal & Newborn Care', avail:'24/7 on-call'},
+  {name:'Mr. Emeka Obi', role:'Community Health Practitioner', specialty:'Community Health', avail:'Mon–Sat'},
+  {name:'Mrs. Blessing Ude', role:'Public Health Practitioner', specialty:'Public Health', avail:'Mon–Fri'},
+  {name:'Pharm. Kelechi Nnamdi', role:'Pharmacist', specialty:'Pharmacy', avail:'Daily, 8am–8pm'},
+  {name:'Mr. Uche Igwe', role:'Medical Laboratory Scientist', specialty:'Laboratory Services', avail:'Mon–Sat'},
+  {name:'Dr. Amaka Chukwu', role:'Dentist', specialty:'Dental Services', avail:'Tue, Thu, Sat'},
+  {name:'Dr. Tunde Bakare', role:'ENT Specialist', specialty:'ENT', avail:'By appointment'},
+  {name:'Dr. Musa Ibrahim', role:'Urologist', specialty:'Urology', avail:'By appointment'},
+  {name:'Dr. Chiamaka Eze', role:'Pediatrician', specialty:'Pediatrics', avail:'Mon–Fri'},
+  {name:'Dr. Gozie Anya', role:'General Surgeon', specialty:'Surgery', avail:'By appointment'},
+  {name:'Mrs. Adaeze Ike', role:'Physiotherapist', specialty:'Physiotherapy & Rehab', avail:'Mon–Fri'},
+  {name:'Mrs. Chinwe Aja', role:'Nurse', specialty:'General Nursing', avail:'24/7 rotating shifts'},
+];
+function renderDirectory(){
+  const q = (document.getElementById('dirSearch').value||'').toLowerCase();
+  const filterSel = document.getElementById('dirFilter');
+  if(filterSel.options.length<=1){
+    [...new Set(PROFESSIONALS.map(p=>p.specialty))].forEach(s=>{
+      const o = document.createElement('option'); o.value=s; o.textContent=s; filterSel.appendChild(o);
+    });
+  }
+  const f = filterSel.value;
+  const list = PROFESSIONALS.filter(p=>{
+    const matchesQ = !q || p.name.toLowerCase().includes(q) || p.role.toLowerCase().includes(q) || p.specialty.toLowerCase().includes(q);
+    const matchesF = !f || p.specialty===f;
+    return matchesQ && matchesF;
+  });
+  const grid = document.getElementById('directoryList');
+  grid.innerHTML = list.length ? list.map(p=>`
+    <div class="card dept-card" style="cursor:default;">
+      <div class="dept-icon">👤</div>
+      <h3>${p.name}</h3>
+      <p style="margin-bottom:2px;"><strong>${p.role}</strong></p>
+      <p style="font-size:.82rem;">${p.specialty} · ${p.avail}</p>
+      <button class="btn btn-ghost btn-sm" onclick="toast('Message sent to ${p.name.replace(/'/g,"")} (demo).')">Contact</button>
+    </div>`).join('') : `<div class="empty-state" style="grid-column:1/-1;"><div class="big">🔎</div>No professionals match your search.</div>`;
+  // also populate appointment provider select
+  const sel = document.getElementById('apptProvider');
+  if(sel && sel.options.length<=0){
+    sel.innerHTML = PROFESSIONALS.map(p=>`<option>${p.name} — ${p.role}</option>`).join('');
+  }
+}
+renderDirectory();
+
+// --- patient auth ---
+function seedDemoPatient(){
+  const users = DB.get('patients', []);
+  if(!users.find(u=>u.email==='demo@macoki.com')){
+    users.push({name:'Demo Patient', dob:'1998-04-12', sex:'Female', phone:'08030000000', email:'demo@macoki.com', pass:'demo1234', allergy:'None reported'});
+    DB.set('patients', users);
+  }
+}
+seedDemoPatient();
+function registerPatient(e){
+  e.preventDefault();
+  const users = DB.get('patients', []);
+  const email = document.getElementById('regEmail').value.trim().toLowerCase();
+  if(users.find(u=>u.email===email)){ toast('An account with that email already exists.'); return false; }
+  users.push({
+    name:document.getElementById('regName').value, dob:document.getElementById('regDob').value,
+    sex:document.getElementById('regSex').value, phone:document.getElementById('regPhone').value,
+    email, pass:document.getElementById('regPass').value, allergy:document.getElementById('regAllergy').value||'None reported'
+  });
+  DB.set('patients', users);
+  toast('Account created! You can now log in.');
+  e.target.reset();
+  return false;
+}
+function loginPatient(e){
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPass').value;
+  const users = DB.get('patients', []);
+  const u = users.find(x=>x.email===email && x.pass===pass);
+  if(!u){ toast('Incorrect email or password.'); return false; }
+  DB.set('session_patient', u);
+  renderPatientSession();
+  toast('Welcome back, '+u.name.split(' ')[0]+'!');
+  return false;
+}
+function logoutPatient(){ DB.set('session_patient', null); renderPatientSession(); }
+function renderPatientSession(){
+  const u = DB.get('session_patient', null);
+  document.getElementById('healthLoggedOut').classList.toggle('hidden', !!u);
+  document.getElementById('healthLoggedIn').classList.toggle('hidden', !u);
+  if(u){
+    document.getElementById('patientWelcome').textContent = 'Welcome, '+u.name;
+    document.getElementById('profileDetails').innerHTML = `${u.sex}, DOB ${fmtDate(u.dob)}<br>${u.phone}<br>Allergies: ${u.allergy}`;
+    document.getElementById('profileApptCount').textContent = DB.get('appointments',[]).length;
+    document.getElementById('profileComplaintCount').textContent = DB.get('complaints',[]).filter(c=>c.status!=='Resolved'&&c.status!=='Closed').length;
+  }
+  renderAppointments(); renderMaternity(); renderLab(); renderComplaints(); renderRx();
+}
+renderPatientSession();
+
+// --- appointments ---
+function bookAppointment(e){
+  e.preventDefault();
+  const list = DB.get('appointments', []);
+  list.unshift({
+    id: refFor('APT'), service:document.getElementById('apptService').value, provider:document.getElementById('apptProvider').value,
+    date:document.getElementById('apptDate').value, time:document.getElementById('apptTime').value,
+    notes:document.getElementById('apptNotes').value, status:'Pending confirmation'
+  });
+  DB.set('appointments', list);
+  toast('Appointment requested!'); e.target.reset(); renderAppointments();
+  return false;
+}
+function renderAppointments(){
+  const list = DB.get('appointments', []);
+  const el = document.getElementById('apptList');
+  if(!el) return;
+  el.innerHTML = list.length ? list.map(a=>`
+    <div class="list-item"><div class="list-item-top">
+      <div><strong>${a.service}</strong><br><span style="font-size:.82rem;color:var(--ink-soft);">${a.provider||'Any available provider'}</span></div>
+      <span class="pill pill-warn">${a.status}</span>
+    </div>
+    <p style="margin:8px 0 0;font-size:.85rem;">📅 ${fmtDate(a.date)} at ${a.time} <span class="mono" style="color:var(--ink-soft);">· ${a.id}</span></p>
+    <div class="badge-row"><button class="btn btn-sm btn-ghost" onclick="advanceAppt('${a.id}')">Confirm (demo)</button><button class="btn btn-sm btn-ghost" onclick="cancelAppt('${a.id}')">Cancel</button></div>
+    </div>`).join('') : `<div class="empty-state"><div class="big">🗓️</div>No appointments yet.</div>`;
+}
+function advanceAppt(id){ const l=DB.get('appointments',[]); const a=l.find(x=>x.id===id); if(a) a.status='Confirmed'; DB.set('appointments',l); renderAppointments(); toast('Appointment confirmed.'); }
+function cancelAppt(id){ let l=DB.get('appointments',[]); l=l.filter(x=>x.id!==id); DB.set('appointments',l); renderAppointments(); toast('Appointment cancelled.'); }
+
+// --- maternity/surgery ---
+function bookMaternity(e){
+  e.preventDefault();
+  const list = DB.get('maternity', []);
+  list.unshift({id:refFor('MAT'), type:document.getElementById('matType').value, date:document.getElementById('matDate').value, notes:document.getElementById('matNotes').value, status:'Awaiting clinical review'});
+  DB.set('maternity', list); toast('Request submitted for clinical review.'); e.target.reset(); renderMaternity();
+  return false;
+}
+function renderMaternity(){
+  const list = DB.get('maternity', []);
+  const el = document.getElementById('matList'); if(!el) return;
+  el.innerHTML = list.length ? list.map(m=>`
+    <div class="list-item"><div class="list-item-top"><strong>${m.type}</strong><span class="pill pill-info">${m.status}</span></div>
+    <p style="margin:8px 0 0;font-size:.85rem;">📅 ${fmtDate(m.date)} <span class="mono" style="color:var(--ink-soft);">· ${m.id}</span></p></div>`).join('')
+    : `<div class="empty-state"><div class="big">🤰</div>No maternity/surgical requests yet.</div>`;
+}
+
+// --- lab ---
+function bookLab(e){
+  e.preventDefault();
+  const list = DB.get('labs', []);
+  list.unshift({id:refFor('LAB'), test:document.getElementById('labTest').value, date:document.getElementById('labDate').value, status:'Sample pending', result:null});
+  DB.set('labs', list); toast('Lab test booked.'); e.target.reset(); renderLab();
+  return false;
+}
+function renderLab(){
+  const list = DB.get('labs', []);
+  const el = document.getElementById('labList'); if(!el) return;
+  el.innerHTML = list.length ? list.map(l=>`
+    <div class="list-item"><div class="list-item-top"><strong>${l.test}</strong><span class="pill ${l.status==='Result available'?'pill-ok':'pill-warn'}">${l.status}</span></div>
+    <p style="margin:8px 0 0;font-size:.85rem;">📅 ${fmtDate(l.date)} <span class="mono" style="color:var(--ink-soft);">· ${l.id}</span></p>
+    ${l.result? `<p style="margin:6px 0 0;font-size:.85rem;"><strong>Result:</strong> ${l.result}</p>` : `<button class="btn btn-sm btn-ghost" onclick="simulateResult('${l.id}')">Simulate result ready</button>`}
+    </div>`).join('') : `<div class="empty-state"><div class="big">🧪</div>No lab bookings yet.</div>`;
+}
+function simulateResult(id){
+  const l = DB.get('labs',[]); const item = l.find(x=>x.id===id);
+  if(item){ item.status='Result available'; item.result='Within normal range (demo result) — log into your secure account for full report.'; }
+  DB.set('labs', l); renderLab(); toast('Your lab result is available. Please check your secure account.');
+}
+
+// --- health info ---
+const HEALTH_TOPICS = [
+  {icon:'🤰',title:'Maternal Health',body:'Antenatal visits, warning signs, and preparing for a safe delivery.'},
+  {icon:'👶',title:'Child Health',body:'Growth milestones, common childhood illnesses, and when to seek care.'},
+  {icon:'🥗',title:'Nutrition',body:'Balanced diets across the lifespan, and nutrition in pregnancy.'},
+  {icon:'💉',title:'Immunization',body:'Recommended vaccine schedules for infants, children and adults.'},
+  {icon:'🦟',title:'Communicable Diseases',body:'Malaria, tuberculosis, HIV and other infectious disease basics.'},
+  {icon:'❤️',title:'Non-Communicable Diseases',body:'Hypertension, diabetes, and long-term condition management.'},
+  {icon:'🧠',title:'Mental Wellbeing',body:'Stress, common mental health concerns, and where to find support.'},
+  {icon:'🌸',title:'Sexual & Reproductive Health',body:'Family planning, menstrual health, and reproductive rights.'},
+  {icon:'🏭',title:'Occupational Health',body:'Workplace safety and preventing occupational illness.'},
+  {icon:'🩹',title:'First Aid',body:'Basic first-aid steps for common emergencies.'},
+  {icon:'💊',title:'Medication Safety',body:'Safe use, storage and disposal of medicines.'},
+  {icon:'🛡️',title:'Preventive Healthcare',body:'Screenings and habits that prevent illness before it starts.'}
+];
+function renderHealthInfo(){
+  const q = (document.getElementById('infoSearch').value||'').toLowerCase();
+  const grid = document.getElementById('infoGrid');
+  const list = HEALTH_TOPICS.filter(t=> !q || t.title.toLowerCase().includes(q) || t.body.toLowerCase().includes(q));
+  grid.innerHTML = list.map(t=>`<div class="card" style="padding:18px;"><div style="font-size:1.5rem;">${t.icon}</div><h3 style="font-size:1rem;margin:8px 0 4px;">${t.title}</h3><p style="font-size:.85rem;margin:0;">${t.body}</p></div>`).join('');
+}
+renderHealthInfo();
+
+// --- ask macoki ---
+const ASK_KB = [
+  {kw:['fever','pregnan'], a:"Fever in pregnancy can have many causes, including infections. Rest, fluids and paracetamol (as directed) can help mild fever, but any fever in pregnancy should be assessed by a clinician promptly — please book an appointment."},
+  {kw:['malaria'], a:"Malaria symptoms include fever, chills, headache and body aches. Prevention includes sleeping under treated nets and clearing stagnant water. Confirmed diagnosis needs a malaria parasite test — you can book one in the Laboratory tab."},
+  {kw:['family planning','contracept'], a:"Family planning options include pills, injectables, implants, IUDs and barrier methods. The right choice depends on your health history — book a Family Planning appointment to discuss options with a provider."},
+  {kw:['immuniz','vaccine'], a:"Routine immunization protects against diseases like measles, polio and tetanus. Ask your provider for the current schedule appropriate for your child's age."},
+  {kw:['anc','antenatal'], a:"Antenatal care (ANC) visits monitor the health of mother and baby throughout pregnancy. WHO recommends at least 8 contacts during pregnancy — you can request ANC under Maternity / Surgery."},
+  {kw:['diabetes','sugar'], a:"Diabetes management involves diet, physical activity, and sometimes medication. Regular fasting blood sugar checks help monitor control — you can book this test in the Laboratory tab."}
+];
+function askMacoki(e){
+  e.preventDefault();
+  const input = document.getElementById('askInput');
+  const q = input.value.trim();
+  addChat('askChat','user', q);
+  const hit = ASK_KB.find(k=> k.kw.some(w=>q.toLowerCase().includes(w)));
+  const answer = hit ? hit.a : "Thanks for your question. This is general educational information only, not a diagnosis. For a personal assessment, please book an appointment, or use Emergency Help if this is urgent.";
+  setTimeout(()=> addChat('askChat','bot', answer), 350);
+  input.value='';
+  return false;
+}
+function addChat(containerId, who, text){
+  const c = document.getElementById(containerId);
+  const b = document.createElement('div'); b.className='chat-bubble '+who; b.textContent=text;
+  c.appendChild(b); c.scrollTop = c.scrollHeight;
+}
+document.getElementById('askSuggestions').innerHTML = ['What causes fever in pregnancy?','How does malaria present?','What are family planning options?','Why is ANC important?'].map(q=>`<button class="btn btn-ghost btn-sm" style="margin:0 6px 8px 0;" onclick="document.getElementById('askInput').value='${q}';askMacoki({preventDefault:()=>{}})">${q}</button>`).join('');
+
+// --- complaints ---
+function submitComplaint(e){
+  e.preventDefault();
+  const list = DB.get('complaints', []);
+  list.unshift({id:refFor('CPL'), category:document.getElementById('cplCategory').value, details:document.getElementById('cplDetails').value, status:'Submitted', ts:Date.now()});
+  DB.set('complaints', list); toast('Complaint submitted. Reference generated.'); e.target.reset(); renderComplaints();
+  return false;
+}
+const CPL_FLOW = ['Submitted','Received','Under Review','Assigned','Resolved','Closed'];
+function renderComplaints(){
+  const list = DB.get('complaints', []);
+  const el = document.getElementById('cplList'); if(!el) return;
+  el.innerHTML = list.length ? list.map(c=>`
+    <div class="list-item">
+      <div class="list-item-top"><strong>${c.category}</strong><span class="pill pill-info mono">${c.id}</span></div>
+      <p style="margin:8px 0;font-size:.85rem;">${c.details}</p>
+      <div class="badge-row">${CPL_FLOW.map(s=>`<span class="pill ${CPL_FLOW.indexOf(s)<=CPL_FLOW.indexOf(c.status)?'pill-ok':'pill-info'}" style="opacity:${CPL_FLOW.indexOf(s)<=CPL_FLOW.indexOf(c.status)?1:.4}">${s}</span>`).join('')}</div>
+      ${c.status!=='Closed'? `<button class="btn btn-sm btn-ghost" style="margin-top:8px;" onclick="advanceComplaint('${c.id}')">Advance status (demo)</button>`:''}
+    </div>`).join('') : `<div class="empty-state"><div class="big">💬</div>No complaints submitted.</div>`;
+}
+function advanceComplaint(id){
+  const l = DB.get('complaints',[]); const c = l.find(x=>x.id===id);
+  if(c){ const i = CPL_FLOW.indexOf(c.status); if(i<CPL_FLOW.length-1) c.status = CPL_FLOW[i+1]; }
+  DB.set('complaints', l); renderComplaints();
+}
+
+// --- prescriptions (read-only demo) ---
+function renderRx(){
+  const el = document.getElementById('rxList'); if(!el) return;
+  const rx = [
+    {med:'Paracetamol 500mg', dose:'1 tablet, 3x daily for 3 days', by:'Dr. Ifeoma Nwachukwu', date:'2026-08-10'},
+    {med:'Folic Acid 5mg', dose:'1 tablet daily', by:'Dr. Chidi Okafor', date:'2026-08-02'}
+  ];
+  el.innerHTML = `<table><thead><tr><th>Medicine</th><th>Instructions</th><th>Prescribed by</th><th>Date</th></tr></thead><tbody>
+    ${rx.map(r=>`<tr><td>${r.med}</td><td>${r.dose}</td><td>${r.by}</td><td>${fmtDate(r.date)}</td></tr>`).join('')}
+  </tbody></table>`;
+}
+
+// --- emergency ---
+function shareLocation(){
+  const out = document.getElementById('locResult');
+  if(!navigator.geolocation){ out.textContent='Location sharing is not supported on this device.'; return; }
+  out.textContent = 'Getting your location…';
+  navigator.geolocation.getCurrentPosition(
+    pos=>{ out.textContent = `📍 Location captured: ${pos.coords.latitude.toFixed(4)}, ${pos.coords.longitude.toFixed(4)} — please read this to our emergency line.`; },
+    err=>{ out.textContent = 'Could not get your location. Please call us directly.'; }
+  );
+}
+
+/* ================= LEARNING PORTAL ================= */
+function seedDemoStudent(){
+  const users = DB.get('students', []);
+  if(!users.find(u=>u.email==='student@macoki.com')){
+    users.push({name:'Demo Student', inst:'National Open University of Nigeria', prog:'B.Sc. Public Health', level:'400L', email:'student@macoki.com', pass:'learn1234'});
+    DB.set('students', users);
+  }
+}
+seedDemoStudent();
+function registerStudent(e){
+  e.preventDefault();
+  const users = DB.get('students', []);
+  const email = document.getElementById('sEmail').value.trim().toLowerCase();
+  if(users.find(u=>u.email===email)){ toast('That email is already registered.'); return false; }
+  users.push({name:document.getElementById('sName').value, inst:document.getElementById('sInst').value, prog:document.getElementById('sProg').value, level:document.getElementById('sLevel').value, email, pass:document.getElementById('sPass').value});
+  DB.set('students', users); toast('Student account created!'); e.target.reset();
+  return false;
+}
+function loginStudent(e){
+  e.preventDefault();
+  const email = document.getElementById('sLoginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('sLoginPass').value;
+  const u = DB.get('students', []).find(x=>x.email===email && x.pass===pass);
+  if(!u){ toast('Incorrect email or password.'); return false; }
+  DB.set('session_student', u); renderStudentSession(); toast('Welcome, '+u.name.split(' ')[0]+'!');
+  return false;
+}
+function logoutStudent(){ DB.set('session_student', null); renderStudentSession(); }
+function renderStudentSession(){
+  const u = DB.get('session_student', null);
+  document.getElementById('studentLoggedOut').classList.toggle('hidden', !!u);
+  document.getElementById('studentLoggedIn').classList.toggle('hidden', !u);
+  if(u){ document.getElementById('studentWelcome').textContent = 'Welcome, '+u.name+' · '+u.prog; renderCbtStats(); }
+}
+renderStudentSession();
+
+function renderCbtStats(){
+  const hist = DB.get('cbt_history', []);
+  document.getElementById('statAttempts').textContent = hist.length;
+  const pcts = hist.map(h=>h.pct);
+  document.getElementById('statBest').textContent = (pcts.length? Math.max(...pcts):0)+'%';
+  document.getElementById('statAvg').textContent = (pcts.length? Math.round(pcts.reduce((a,b)=>a+b,0)/pcts.length):0)+'%';
+  document.getElementById('statSubjects').textContent = new Set(hist.map(h=>h.subject)).size;
+  renderCbtHistory();
+}
+function renderCbtHistory(){
+  const hist = DB.get('cbt_history', []);
+  const el = document.getElementById('cbtHistory');
+  el.innerHTML = `<table><thead><tr><th>Subject</th><th>Score</th><th>Correct</th><th>Time used</th><th>Date</th></tr></thead><tbody>
+    ${hist.length? hist.slice(0,10).map(h=>`<tr><td>${h.subjectLabel}</td><td>${h.pct}%</td><td>${h.correct}/${h.total}</td><td>${h.timeUsed}</td><td>${new Date(h.ts).toLocaleString()}</td></tr>`).join('') : `<tr><td colspan="5" style="text-align:center;color:var(--ink-soft);">No attempts yet — take a CBT practice test above.</td></tr>`}
+  </tbody></table>`;
+}
+renderCbtHistory();
+
+// --- library ---
+const LIBRARY = [
+  {title:'WHO Guidelines Repository', tag:'Public Health', link:'https://www.who.int/publications'},
+  {title:'NOUN Open Courseware / OER', tag:'University', link:'https://noun.edu.ng'},
+  {title:'PubMed Central (free full-text)', tag:'Research', link:'https://www.ncbi.nlm.nih.gov/pmc/'},
+  {title:'Nigeria CDC Publications', tag:'Public Health', link:'https://ncdc.gov.ng'},
+  {title:'OER Commons', tag:'Open Textbooks', link:'https://www.oercommons.org'},
+  {title:'NIST Cybersecurity Framework', tag:'Cybersecurity', link:'https://www.nist.gov/cyberframework'}
+];
+function renderLibrary(){
+  const q = (document.getElementById('libSearch').value||'').toLowerCase();
+  const grid = document.getElementById('libGrid');
+  grid.innerHTML = LIBRARY.filter(l=> !q || l.title.toLowerCase().includes(q) || l.tag.toLowerCase().includes(q)).map(l=>`
+    <div class="card" style="padding:18px;">
+      <span class="pill pill-info">${l.tag}</span>
+      <h3 style="font-size:1rem;margin:10px 0 6px;">${l.title}</h3>
+      <a class="btn btn-ghost btn-sm" href="${l.link}" target="_blank" rel="noopener">Visit source ↗</a>
+    </div>`).join('');
+}
+renderLibrary();
+
+// --- CBT engine ---
+const QUESTION_BANKS = {
+  epi: {label:'Epidemiology', qs:[
+    {q:'What does "incidence" measure in epidemiology?', o:['New cases over a period','Total existing cases','Death rate','Recovery rate'], a:0},
+    {q:'A case-control study compares:', o:['Two treatments','Diseased vs non-diseased groups','Two hospitals','Two countries'], a:1},
+    {q:'The "epidemiologic triad" includes agent, host and:', o:['Environment','Economy','Ethnicity','Education'], a:0},
+    {q:'Prevalence is best described as:', o:['Rate of new cases','Proportion of a population with disease at a point in time','Number of deaths','Vaccine coverage'], a:1},
+    {q:'Which study design follows subjects forward in time?', o:['Cross-sectional','Case-control','Cohort','Case report'], a:2},
+    {q:'A confounding variable is one that:', o:['Has no effect on outcome','Is related to both exposure and outcome','Only affects the control group','Is always the outcome'], a:1},
+    {q:'Herd immunity threshold depends mainly on:', o:['Basic reproduction number (R0)','Population income','Weather','Hospital beds'], a:0},
+    {q:'Sensitivity of a test measures:', o:['True negatives detected','True positives detected','Cost of the test','Speed of the test'], a:1},
+    {q:'An epidemic curve helps identify:', o:['Mode of transmission and time course','Only the death toll','Hospital funding','Vaccine names'], a:0},
+    {q:'Which is a primary prevention example?', o:['Immunization','Treating an infection','Rehabilitation','Screening for cancer'], a:0},
+  ]},
+  ch: {label:'Community Health', qs:[
+    {q:'Primary Health Care (PHC) was established by which declaration?', o:['Alma-Ata','Ottawa','Bangkok','Jakarta'], a:0},
+    {q:'A key role of a Community Health Practitioner is:', o:['Performing surgery','Health education and promotion','Running a pharmacy company','Managing hospitals only'], a:1},
+    {q:'ORT stands for:', o:['Oral Rehydration Therapy','Oral Reproductive Test','Organ Removal Technique','Outpatient Referral Ticket'], a:0},
+    {q:'Which is a determinant of health?', o:['Income and social status','Favorite color','Shoe size','Phone brand'], a:0},
+    {q:'Community diagnosis is used to:', o:['Identify health needs of a community','Diagnose one patient','Replace lab tests','Set drug prices'], a:0},
+    {q:'Which is an example of a vector-borne disease?', o:['Malaria','Diabetes','Hypertension','Asthma'], a:0},
+    {q:'Exclusive breastfeeding is recommended for the first:', o:['2 weeks','6 months','2 years','1 month'], a:1},
+    {q:'WASH programmes focus on:', o:['Water, Sanitation and Hygiene','Wealth and Savings','Weight and Strength','Work and Salary Health'], a:0},
+    {q:'A "hard to reach" community typically has:', o:['Easy access to all services','Limited access to health services','No population','Only urban residents'], a:1},
+    {q:'Health education aims mainly to:', o:['Increase knowledge and healthy behavior','Sell medicines','Reduce staff','Increase hospital bills'], a:0},
+  ]},
+  cyber: {label:'Cybersecurity Fundamentals', qs:[
+    {q:'The "CIA triad" in security stands for:', o:['Confidentiality, Integrity, Availability','Control, Identity, Access','Cyber, Internet, Attack','Code, Input, Authentication'], a:0},
+    {q:'Phishing is best described as:', o:['A firewall type','A social engineering attack via deceptive messages','A hardware failure','An encryption algorithm'], a:1},
+    {q:'A firewall primarily:', o:['Encrypts files','Filters network traffic','Backs up data','Writes code'], a:1},
+    {q:'Multi-factor authentication adds security by:', o:['Using only a password','Requiring two or more verification methods','Disabling all logins','Removing passwords entirely'], a:1},
+    {q:'Malware that demands payment to restore access is called:', o:['Ransomware','Spyware','Adware','Firmware'], a:0},
+    {q:'A SOC analyst primarily works on:', o:['Monitoring and responding to security incidents','Building furniture','Marketing campaigns','Payroll processing'], a:0},
+    {q:'Which is a strong password practice?', o:['Reusing one password everywhere','Using long, unique passphrases','Using "123456"','Sharing passwords by email'], a:1},
+    {q:'A VPN is mainly used to:', o:['Create an encrypted network connection','Speed up a printer','Design websites','Store passwords in plain text'], a:0},
+    {q:'Patch management refers to:', o:['Sewing torn network cables','Regularly updating software to fix vulnerabilities','Changing office furniture','Renaming files'], a:1},
+    {q:'Least privilege means users should have:', o:['Full admin access always','Only the access needed for their role','No access at all','Shared accounts'], a:1},
+  ]}
+};
+let cbtState = null;
+function startCBT(){
+  const subj = document.getElementById('cbtSubject').value;
+  const timeLimit = parseInt(document.getElementById('cbtTime').value);
+  const bank = QUESTION_BANKS[subj];
+  const qs = [...bank.qs].sort(()=>Math.random()-0.5).map(q=>{
+    const opts = q.o.map((o,i)=>({text:o, correct:i===q.a}));
+    return {q:q.q, options: opts.sort(()=>Math.random()-0.5), selected:null};
+  });
+  cbtState = {subject:subj, subjectLabel:bank.label, qs, idx:0, timeLimit, timeLeft:timeLimit, timer:null};
+  document.getElementById('cbtSetup').classList.add('hidden');
+  document.getElementById('cbtResult').classList.add('hidden');
+  document.getElementById('cbtRunning').classList.remove('hidden');
+  renderCbtQuestion();
+  cbtState.timer = setInterval(cbtTick, 1000);
+}
+function cbtTick(){
+  cbtState.timeLeft--;
+  const m = Math.floor(cbtState.timeLeft/60), s = cbtState.timeLeft%60;
+  document.getElementById('cbtTimer').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+  if(cbtState.timeLeft<=0){ clearInterval(cbtState.timer); finishCBT(); }
+}
+function renderCbtQuestion(){
+  const st = cbtState; const item = st.qs[st.idx];
+  document.getElementById('cbtProgressLabel').textContent = `Question ${st.idx+1} of ${st.qs.length}`;
+  document.getElementById('cbtProgressBar').style.width = ((st.idx)/st.qs.length*100)+'%';
+  document.getElementById('cbtQuestion').textContent = item.q;
+  document.getElementById('cbtOptions').innerHTML = item.options.map((o,i)=>`
+    <button type="button" class="quiz-option ${item.selected===i?'selected':''}" onclick="selectCbtOption(${i})">${o.text}</button>`).join('');
+  document.getElementById('cbtNextBtn').textContent = st.idx===st.qs.length-1 ? 'Finish test' : 'Next →';
+}
+function selectCbtOption(i){ cbtState.qs[cbtState.idx].selected = i; renderCbtQuestion(); }
+function cbtNext(){
+  if(cbtState.idx < cbtState.qs.length-1){ cbtState.idx++; renderCbtQuestion(); }
+  else { clearInterval(cbtState.timer); finishCBT(); }
+}
+function cbtPrev(){ if(cbtState.idx>0){ cbtState.idx--; renderCbtQuestion(); } }
+function finishCBT(){
+  const st = cbtState;
+  let correct=0, wrong=0, unanswered=0;
+  st.qs.forEach(item=>{
+    if(item.selected===null) unanswered++;
+    else if(item.options[item.selected].correct) correct++;
+    else wrong++;
+  });
+  const pct = Math.round((correct/st.qs.length)*100);
+  const timeUsed = st.timeLimit - st.timeLeft;
+  const tm = Math.floor(timeUsed/60), ts = timeUsed%60;
+  document.getElementById('cbtRunning').classList.add('hidden');
+  document.getElementById('cbtResult').classList.remove('hidden');
+  document.getElementById('scoreRing').style.setProperty('--pct', pct);
+  document.getElementById('scorePct').textContent = pct+'%';
+  document.getElementById('scoreCorrect').textContent = 'Correct: '+correct;
+  document.getElementById('scoreWrong').textContent = 'Incorrect: '+wrong;
+  document.getElementById('scoreUnanswered').textContent = 'Unanswered: '+unanswered;
+  document.getElementById('scoreTime').textContent = `Time used: ${tm}:${ts.toString().padStart(2,'0')}`;
+  const hist = DB.get('cbt_history', []);
+  hist.unshift({subject:st.subject, subjectLabel:st.subjectLabel, pct, correct, total:st.qs.length, timeUsed:`${tm}:${ts.toString().padStart(2,'0')}`, ts:Date.now()});
+  DB.set('cbt_history', hist);
+  renderCbtStats();
+  document.getElementById('cbtReview').innerHTML='';
+}
+function reviewCBT(){
+  const st = cbtState;
+  document.getElementById('cbtReview').innerHTML = '<h3>Review</h3>' + st.qs.map((item,i)=>`
+    <div class="list-item">
+      <strong>${i+1}. ${item.q}</strong>
+      ${item.options.map(o=>`<div class="quiz-option ${o.correct?'correct':(item.options.indexOf(o)===item.selected?'wrong':'')}" style="pointer-events:none;">${o.text}${o.correct?' ✓':''}</div>`).join('')}
+    </div>`).join('');
+}
+function resetCBT(){
+  document.getElementById('cbtResult').classList.add('hidden');
+  document.getElementById('cbtSetup').classList.remove('hidden');
+  cbtState = null;
+}
+
+/* ================= INVENTORY ================= */
+function staffLogin(e){
+  e.preventDefault();
+  if(document.getElementById('staffPass').value === 'MACOKI-STAFF'){
+    document.getElementById('invGate').classList.add('hidden');
+    document.getElementById('invApp').classList.remove('hidden');
+    renderInventory();
+    toast('Staff access granted.');
+  } else { toast('Incorrect passcode.'); }
+  return false;
+}
+function daysUntil(dateStr){
+  const now = new Date(); now.setHours(0,0,0,0);
+  const d = new Date(dateStr);
+  return Math.round((d-now)/86400000);
+}
+function expiryStatus(dateStr){
+  const days = daysUntil(dateStr);
+  if(days<0) return {label:'🔴 Expired', cls:'pill-danger'};
+  if(days<=90) return {label:`🟠 Expiring (${days}d)`, cls:'pill-warn'};
+  return {label:'🟢 Valid', cls:'pill-ok'};
+}
+function addDrug(e){
+  e.preventDefault();
+  const list = DB.get('drugs', []);
+  list.unshift({
+    id:refFor('DRG'), generic:document.getElementById('dGeneric').value, brand:document.getElementById('dBrand').value,
+    form:document.getElementById('dForm').value, qty:document.getElementById('dQty').value, batch:document.getElementById('dBatch').value,
+    mfg:document.getElementById('dMfg').value, exp:document.getElementById('dExp').value, supplier:document.getElementById('dSupplier').value
+  });
+  DB.set('drugs', list); closeModal('drugModal'); e.target.reset(); renderInventory(); toast('Drug added to inventory.');
+  return false;
+}
+function removeDrug(id){ let l=DB.get('drugs',[]); l=l.filter(x=>x.id!==id); DB.set('drugs',l); renderInventory(); }
+function seedDemoDrugs(){
+  if(DB.get('drugs',null)===null){
+    DB.set('drugs',[
+      {id:refFor('DRG'), generic:'Amoxicillin', brand:'Amoxil', form:'Capsule', qty:500, batch:'AMX-2291', mfg:'2025-01-10', exp:'2027-01-10', supplier:'Emzor Pharma'},
+      {id:refFor('DRG'), generic:'Paracetamol', brand:'Panadol', form:'Tablet', qty:1000, batch:'PCM-1187', mfg:'2024-06-01', exp:'2026-09-15', supplier:'GSK Nigeria'},
+      {id:refFor('DRG'), generic:'Artemether/Lumefantrine', brand:'Coartem', form:'Tablet', qty:200, batch:'ART-3345', mfg:'2024-11-01', exp:'2026-05-01', supplier:'Novartis'},
+    ]);
+  }
+}
+seedDemoDrugs();
+function renderInventory(){
+  const drugs = DB.get('drugs', []);
+  const tbody = document.getElementById('drugTbody');
+  tbody.innerHTML = drugs.length ? drugs.map(d=>{
+    const st = expiryStatus(d.exp);
+    return `<tr><td>${d.generic}${d.brand?` <span style="color:var(--ink-soft);">(${d.brand})</span>`:''}</td><td>${d.form}</td><td>${d.qty}</td><td class="mono">${d.batch}</td><td>${fmtDate(d.mfg)}</td><td>${fmtDate(d.exp)}</td><td><span class="pill ${st.cls}">${st.label}</span></td><td><button class="btn btn-sm btn-ghost" onclick="removeDrug('${d.id}')">Remove</button></td></tr>`;
+  }).join('') : `<tr><td colspan="8" style="text-align:center;color:var(--ink-soft);">No drugs added yet.</td></tr>`;
+
+  document.getElementById('invTotal').textContent = drugs.length;
+  document.getElementById('invExpired').textContent = drugs.filter(d=>daysUntil(d.exp)<0).length;
+  document.getElementById('invSoon').textContent = drugs.filter(d=>daysUntil(d.exp)>=0 && daysUntil(d.exp)<=90).length;
+  document.getElementById('invValid').textContent = drugs.filter(d=>daysUntil(d.exp)>90).length;
+  renderMovement(); renderDispense();
+}
+function addMovement(e){
+  e.preventDefault();
+  const list = DB.get('movements', []);
+  list.unshift({id:refFor('MOV'), item:document.getElementById('mItem').value, type:document.getElementById('mType').value, qty:document.getElementById('mQty').value, staff:document.getElementById('mStaff').value, reason:document.getElementById('mReason').value, ts:Date.now()});
+  DB.set('movements', list); closeModal('moveModal'); e.target.reset(); renderMovement(); toast('Movement logged.');
+  return false;
+}
+function renderMovement(){
+  const list = DB.get('movements', []);
+  const tbody = document.getElementById('moveTbody'); if(!tbody) return;
+  tbody.innerHTML = list.length ? list.map(m=>`<tr><td>${m.item}</td><td>${m.type}</td><td>${m.qty}</td><td>${m.staff}</td><td>${new Date(m.ts).toLocaleString()}</td><td class="mono">${m.id}</td></tr>`).join('') : `<tr><td colspan="6" style="text-align:center;color:var(--ink-soft);">No movements logged yet.</td></tr>`;
+}
+function logDispense(e){
+  e.preventDefault();
+  const list = DB.get('dispense', []);
+  list.unshift({patient:document.getElementById('dsPatient').value, rx:document.getElementById('dsRx').value, med:document.getElementById('dsMed').value, qty:document.getElementById('dsQty').value, staff:document.getElementById('dsStaff').value, ts:Date.now()});
+  DB.set('dispense', list); e.target.reset(); renderDispense(); toast('Dispensing recorded.');
+  return false;
+}
+function renderDispense(){
+  const list = DB.get('dispense', []);
+  const tbody = document.getElementById('dispTbody'); if(!tbody) return;
+  tbody.innerHTML = list.length ? list.map(d=>`<tr><td>${d.patient}</td><td class="mono">${d.rx}</td><td>${d.med}</td><td>${d.qty}</td><td>${d.staff}</td><td>${new Date(d.ts).toLocaleString()}</td></tr>`).join('') : `<tr><td colspan="6" style="text-align:center;color:var(--ink-soft);">No dispensing records yet.</td></tr>`;
+}
+
+/* ================= NURSERY ================= */
+const ABC = [
+  ['A','Apple','🍎'],['B','Ball','⚽'],['C','Cat','🐱'],['D','Dog','🐶'],['E','Elephant','🐘'],['F','Fish','🐟'],
+  ['G','Goat','🐐'],['H','House','🏠'],['I','Ice cream','🍦'],['J','Jug','🫙'],['K','Kite','🪁'],['L','Lion','🦁'],
+  ['M','Mango','🥭'],['N','Nest','🪺'],['O','Orange','🍊'],['P','Pencil','✏️'],['Q','Queen','👑'],['R','Rabbit','🐰'],
+  ['S','Sun','☀️'],['T','Tree','🌳'],['U','Umbrella','☂️'],['V','Van','🚐'],['W','Watch','⌚'],['X','Xylophone','🎼'],
+  ['Y','Yo-yo','🪀'],['Z','Zebra','🦓']
+];
+document.getElementById('abcGrid').innerHTML = ABC.map(([l,w,e])=>`
+  <div class="abc-card" onclick="speakLetter('${l}','${w}')">
+    <div class="abc-letter">${l}</div><div class="abc-emoji">${e}</div><div class="abc-word">${w}</div>
+  </div>`).join('');
+function speakLetter(l,w){
+  if('speechSynthesis' in window){
+    const u = new SpeechSynthesisUtterance(`${l}. ${l} is for ${w}.`);
+    u.rate = 0.85; speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+  toast(`${l} is for ${w}!`);
+}
+const NURSERY_SUBJECTS = ['Alphabet','Phonics','Numbers','Basic Mathematics','English Language','Environmental Studies','Health Education','Social Studies','Creative Arts','Music','Moral Education','Computer Awareness','Physical Activities','Basic Science','Personal Hygiene'];
+document.getElementById('subjectGrid').innerHTML = NURSERY_SUBJECTS.map(s=>`<div class="card" style="padding:16px;text-align:center;font-weight:700;">${s}</div>`).join('');
+
+// writing canvas
+const canvas = document.getElementById('writeCanvas');
+let drawing=false, ctx;
+function initCanvas(){
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width; canvas.height = rect.height;
+  ctx = canvas.getContext('2d');
+  ctx.lineWidth=6; ctx.lineCap='round'; ctx.strokeStyle = getComputedStyle(document.body).getPropertyValue('--teal-700');
+}
+function getPos(e){
+  const r = canvas.getBoundingClientRect();
+  const t = e.touches ? e.touches[0] : e;
+  return {x:t.clientX-r.left, y:t.clientY-r.top};
+}
+canvas.addEventListener('pointerdown', e=>{ drawing=true; const p=getPos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); });
+canvas.addEventListener('pointermove', e=>{ if(!drawing) return; const p=getPos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); });
+window.addEventListener('pointerup', ()=> drawing=false);
+function clearCanvas(){ ctx.clearRect(0,0,canvas.width,canvas.height); }
+window.addEventListener('resize', ()=>{ if(document.getElementById('view-nursery').classList.contains('active')) initCanvas(); });
+
+// learning buddy
+const BUDDY_KB = [
+  {kw:['a is','letter a'], a:"A is for Apple! 🍎 Can you say 'Apple' three times?"},
+  {kw:['number','count'], a:"Let's count together: 1, 2, 3, 4, 5! Can you count your fingers?"},
+  {kw:['story'], a:"Once upon a time, a little goat 🐐 loved to jump over the sun ☀️. The end! Want to hear it again?"},
+  {kw:['color','colour'], a:"Red, yellow, blue and green are colors! What color is your shirt today?"},
+];
+function askBuddy(e){
+  e.preventDefault();
+  const input = document.getElementById('buddyInput');
+  const q = input.value.trim();
+  addChat('buddyChat','user', q);
+  const hit = BUDDY_KB.find(k=>k.kw.some(w=>q.toLowerCase().includes(w)));
+  setTimeout(()=> addChat('buddyChat','bot', hit? hit.a : "That's a great question! Let's ask a grown-up to explore it together, and I can tell you about letters, numbers or a fun story!"), 300);
+  input.value=''; return false;
+}
+
+/* ================= WOMEN'S HEALTH ================= */
+function seedDemoWoman(){
+  const users = DB.get('women', []);
+  if(!users.find(u=>u.email==='woman@macoki.com')){
+    users.push({name:'Demo User', dob:'1996-02-20', email:'woman@macoki.com', pass:'cycle1234'});
+    DB.set('women', users);
+  }
+}
+seedDemoWoman();
+function registerWoman(e){
+  e.preventDefault();
+  const users = DB.get('women', []);
+  const email = document.getElementById('wEmail').value.trim().toLowerCase();
+  if(users.find(u=>u.email===email)){ toast('That email is already registered.'); return false; }
+  users.push({name:document.getElementById('wName').value, dob:document.getElementById('wDob').value, email, pass:document.getElementById('wPass').value});
+  DB.set('women', users); toast('Account created!'); e.target.reset();
+  return false;
+}
+function loginWoman(e){
+  e.preventDefault();
+  const email = document.getElementById('wLoginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('wLoginPass').value;
+  const u = DB.get('women', []).find(x=>x.email===email && x.pass===pass);
+  if(!u){ toast('Incorrect email or password.'); return false; }
+  DB.set('session_woman', u); renderWomanSession(); toast('Welcome, '+u.name.split(' ')[0]+'!');
+  return false;
+}
+function logoutWoman(){ DB.set('session_woman', null); renderWomanSession(); }
+function renderWomanSession(){
+  const u = DB.get('session_woman', null);
+  document.getElementById('womenLoggedOut').classList.toggle('hidden', !!u);
+  document.getElementById('womenLoggedIn').classList.toggle('hidden', !u);
+  if(u) document.getElementById('womanWelcome').textContent = 'Welcome, '+u.name;
+}
+renderWomanSession();
+
+function updateCycle(e){
+  e.preventDefault();
+  DB.set('cycle', {start:document.getElementById('cycleStart').value, len:parseInt(document.getElementById('cycleLen').value), period:parseInt(document.getElementById('periodLen').value)});
+  renderCycle();
+  toast('Cycle updated.');
+  return false;
+}
+function renderCycle(){
+  const c = DB.get('cycle', null);
+  const summary = document.getElementById('cycleSummary');
+  if(!c){ summary.innerHTML=''; renderCalendar(null); return; }
+  const start = new Date(c.start);
+  const nextPeriod = new Date(start); nextPeriod.setDate(start.getDate()+c.len);
+  const ovulation = new Date(start); ovulation.setDate(start.getDate()+c.len-14);
+  const fertileStart = new Date(ovulation); fertileStart.setDate(ovulation.getDate()-5);
+  const fertileEnd = new Date(ovulation); fertileEnd.setDate(ovulation.getDate()+1);
+  summary.innerHTML = `
+    <div class="list-item"><strong>Next period (predicted):</strong> ${fmtDate(nextPeriod)}</div>
+    <div class="list-item"><strong>Estimated ovulation:</strong> ${fmtDate(ovulation)}</div>
+    <div class="list-item"><strong>Fertile window:</strong> ${fmtDate(fertileStart)} – ${fmtDate(fertileEnd)}</div>
+    <p class="note">Estimates only, based on average cycle length — actual ovulation can vary. Not a substitute for clinical family-planning advice.</p>`;
+  renderCalendar(c);
+}
+function renderCalendar(c){
+  const grid = document.getElementById('calGrid');
+  const now = new Date(); const year = now.getFullYear(), month = now.getMonth();
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  let cells = [];
+  for(let i=0;i<firstDay;i++) cells.push('<div></div>');
+  let periodDays=[], ovDay=null, fertileDays=[];
+  if(c){
+    const start = new Date(c.start);
+    for(let k=-2;k<3;k++){
+      const pStart = new Date(start); pStart.setDate(start.getDate() + k*c.len);
+      for(let d=0; d<c.period; d++){ const pd = new Date(pStart); pd.setDate(pStart.getDate()+d); periodDays.push(pd.toDateString()); }
+      const ov = new Date(pStart); ov.setDate(pStart.getDate()+c.len-14);
+      if(k===0 || k===1) { if(!ovDay) ovDay = ov.toDateString(); }
+      for(let f=-5; f<=1; f++){ const fd = new Date(ov); fd.setDate(ov.getDate()+f); fertileDays.push(fd.toDateString()); }
+    }
+  }
+  for(let d=1; d<=daysInMonth; d++){
+    const dt = new Date(year, month, d);
+    const key = dt.toDateString();
+    let cls='cal-day';
+    if(periodDays.includes(key)) cls+=' period';
+    else if(key===ovDay) cls+=' ovulation';
+    else if(fertileDays.includes(key)) cls+=' fertile';
+    if(dt.toDateString()===new Date().toDateString()) cls+=' today';
+    cells.push(`<div class="${cls}">${d}</div>`);
+  }
+  grid.innerHTML = cells.join('');
+}
+renderCycle();
+
+// FAQ
+const FAQS = [
+  {q:'How soon can I test for pregnancy?', a:'Most home and clinic pregnancy tests can detect pregnancy from around the first day of a missed period, using a urine or blood test for β-hCG.'},
+  {q:'How many antenatal visits are recommended?', a:'WHO recommends a minimum of 8 antenatal contacts during pregnancy for the best outcomes for mother and baby.'},
+  {q:'What is a "safe period"?', a:'The days furthest from ovulation carry a lower (not zero) chance of pregnancy. Because ovulation timing can shift, this method is less reliable than other family planning options — speak with a provider for guidance suited to you.'},
+  {q:'When should I be concerned about irregular periods?', a:'If your cycle is consistently shorter than 21 days or longer than 35 days, or changes suddenly, it is worth discussing with a healthcare provider.'},
+  {q:'Is spotting between periods normal?', a:'Occasional light spotting can have simple causes, but persistent or heavy spotting between periods should be assessed by a clinician.'},
+  {q:'What foods support a healthy pregnancy?', a:'A varied diet with protein, iron-rich foods, folate, calcium and adequate fluids supports pregnancy — your provider can guide you on supplements like folic acid and iron.'},
+  {q:'Can I take family planning while breastfeeding?', a:'Several family planning methods are safe during breastfeeding. A provider can help you choose one that does not affect milk supply.'},
+  {q:'What are early signs of labor?', a:'Regular, increasingly strong contractions, waters breaking, or a bloody show can signal labor is starting — contact your provider or come in when contractions are frequent.'}
+];
+document.getElementById('faqList').innerHTML = FAQS.map((f,i)=>`
+  <div class="accordion-item">
+    <button class="accordion-head" onclick="toggleFaq(${i})">${f.q}<span id="faqIcon${i}">+</span></button>
+    <div class="accordion-body" id="faqBody${i}"><p style="padding-top:8px;">${f.a}</p></div>
+  </div>`).join('');
+function toggleFaq(i){
+  const body = document.getElementById('faqBody'+i);
+  const icon = document.getElementById('faqIcon'+i);
+  const open = body.classList.toggle('open');
+  icon.textContent = open ? '−' : '+';
+}
+
+/* init canvas once nursery view first opened */
+const origGo = go;
+go = function(view){ origGo(view); if(view==='nursery') setTimeout(initCanvas, 60); };
+</script>
+</body>
+</html>
